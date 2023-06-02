@@ -8,10 +8,10 @@ export default function Home() {
 
   return (
     <>
-      <Button variant="transparent" text="Sign Up" />
-      <Button color="blue" text="Log In" />
-      <Card/>
-      <CardJogo/>
+{/*       <Button variant="transparent" text="Sign Up" />
+      <Button color="blue" text="Log In" /> */}
+     {/*  <Card/> */}
+      <CardJogo/> 
     </>
   );
 }

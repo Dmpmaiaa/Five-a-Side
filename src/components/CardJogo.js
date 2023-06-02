@@ -1,29 +1,33 @@
-export default function CardJogo({ 
-    image,
-    price,
-    name,
-    workingHours,
-    details,
-  }) {
-    return (
-      <>
-        <div className="absolute w-96 h-96 bg-[#020E16] rounded-lg border-solid  border-[0.7px] border-opacity-65 border-hex-153c58 left-14 top-84 flex flex-col justify-end p-4">
-          <div>
+export default function CardJogo({
+  image,
+  price,
+  name,
+  workingHours,
+  details,
+}) {
+  return (
+    <>
+      {/* WRAPPER */}
+      <div className="w-96 h-80 bg-primaryDarkestBlue rounded-lg border-solid border-[0.7px] border-opacity-65  flex flex-col items-center pt-[10px] px-[10px]">
 
-            {/* <img src="../src/images/courts_2048_1593712349.jpg" alt="Minha Imagem" /> */}
+        {/* IMAGE */}
+        <div className="relative w-full h-[216px] bg-red-600 rounded-lg ">
+          <div className="absolute w-16 h-4 bg-primaryBlue bottom-4 left-3 rounded-md">
+            <p className="text-center text-xs">25 €</p>
+          </div>
+        </div>
 
-          </div>
-            <img />
-          </div>
-          <div> 
+        
+      <div className="flex flex-col w-full pt-2">
+        <div>
             <h2 className="text-[#F4F4F9] font-semibold">Ringue Matriz</h2>
+            <span className="text-[#0C8CE9]">09:00 - 22:00</span>
             <p className="text-[#F4F4F9]">Povoa de Varzim</p>
-            <span className="text-[#0C8CE9]">16:00</span>
-            <span className="text-[#0C8CE9]">17/06/2023</span>
-            
-          </div>
-
-      </>
-    );
-  }
-  
+        </div>
+        
+      </div>
+       
+      </div>
+    </>
+  );
+}
