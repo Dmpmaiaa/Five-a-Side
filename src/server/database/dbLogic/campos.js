@@ -1,8 +1,18 @@
-const { ObjectId } = require("mongodb");
+import { getMongoCollection } from "../db";
+import { ObjectId } from "mongodb";
+
 
 const COLLECTION_NAME = "campos";
 
-export async function getFieldById(id) {
+export async function findFieldById(id) {
     const collection = await getMongoCollection(COLLECTION_NAME);
-    return collection.findOne({ _id: new ObjectId(id) });
+    const result =  collection.findOne({ _id: new ObjectId(id) });
+    return res
+}
+
+
+export async function findFields(id) {
+    const collection = await getMongoCollection(COLLECTION_NAME)
+    const result =  collection.find()
+    return result
 }
