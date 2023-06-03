@@ -9,8 +9,9 @@ export default function Home() {
 
   return (
     <>
-    {/* {testingCard.map(el => <Card />)} */}
-    <LoginForm />
+    <h1 className="text-contrastOffWhite">HOME</h1>
+    
+
 
     </>
   );

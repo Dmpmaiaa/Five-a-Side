@@ -7,11 +7,13 @@ export default function Card({
   location,
   workingHours,
   details,
+  cardId,
+  moreOptions
 }) {
   return (
     <>
-      {/* WRAPPER */}
-      <div className="w-[368px] h-[304px] bg-primaryDarkestBlue rounded-lg border-primaryBlue border-solid border border-opacity-10 flex flex-col items-center pt-[10px] px-[10px] mb-5">
+
+      <div onClick={(cardId) => moreOptions(cardId)} className="w-[368px] h-[304px] bg-primaryDarkestBlue rounded-lg border-primaryBlue border-solid border border-opacity-10 flex flex-col items-center pt-[10px] px-[10px] mb-5">
         {/* IMAGE */}
         <div className="relative w-full h-[208px] rounded-lg ">
           <Image
@@ -29,7 +31,7 @@ export default function Card({
           </div>
         </div>
 
-        <div className="flex w-full pt-2 px-3 justify-between z-10 bg-primaryDarkestBlue border border-primaryDarkestBlue">
+        <div className="flex w-full p-2 px-3 justify-between z-10 bg-primaryDarkestBlue border border-primaryDarkestBlue">
           <div>
             <h2 className="text-contrastOffWhite font-semibold text-m">
               {name}

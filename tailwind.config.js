@@ -20,6 +20,9 @@ module.exports = {
       },
       grayscale: {
         75: '75%',
+      },
+      fontFamily : {
+        "favorite": ["FavoriteHeavyC"]
       }
     },
   },
