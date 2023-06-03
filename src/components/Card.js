@@ -1,9 +1,10 @@
 import Image from "next/image";
 
-export default function CardJogo({
+export default function Card({
   image,
   price,
   name,
+  location,
   workingHours,
   details,
 }) {
@@ -14,7 +15,7 @@ export default function CardJogo({
         {/* IMAGE */}
         <div className="relative w-full h-[208px] rounded-lg ">
           <Image
-            src="/../public/images/ringMatriz.jpg" /* image */
+            src={image} /* image */
             width={364}
             height={210}
             alt="Fotografia do Ringue da Matriz"
@@ -23,7 +24,7 @@ export default function CardJogo({
 
           <div className="absolute w-[70.97px] h-[20px] bg-primaryBlue bottom-3 left-3 rounded-md">
             <p className="text-center text-sm text-contrastOffWhite">
-              25 € {/* price */}
+              {price} €
             </p>
           </div>
         </div>
@@ -31,30 +32,30 @@ export default function CardJogo({
         <div className="flex w-full pt-2 px-3 justify-between z-10 bg-primaryDarkestBlue border border-primaryDarkestBlue">
           <div>
             <h2 className="text-contrastOffWhite font-semibold text-m">
-              Ringue Matriz {/* name */}
+              {name}
             </h2>
 
-            <span className="text-primaryBlue text-xs">09:00 - 22:00 {/* workingHours */}</span>
+            <span className="text-primaryBlue text-xs">{workingHours}</span>
 
             <span className="text-contrastOffWhite text-sm block">
-              Povoa de Varzim {/* location */}
+             {location}
             </span>
           </div>
           <div className="flex items-center ">
             <ul className="flex flex-wrap">
-              {" "}
-              {/* details */}
+
+
               <li className="text-contrastOffWhite text-right text-xs opacity-50 w-1/2">
-                Bola
+               {details.ball && 'Bola'}
               </li>
               <li className="text-contrastOffWhite text-right text-xs opacity-50 w-1/2">
-                Sintético
+                {details.type}
               </li>
               <li className="text-contrastOffWhite text-right text-xs opacity-50 w-1/2">
-                Coletes
+                {details.vest && 'Coletes'}
               </li>
               <li className="text-contrastOffWhite text-right text-xs opacity-50 w-1/2">
-                Balneário
+                {details.lockerRoom && 'Balneários'}
               </li>
             </ul>
           </div>
