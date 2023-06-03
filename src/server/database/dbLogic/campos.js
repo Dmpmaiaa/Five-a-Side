@@ -13,6 +13,6 @@ export async function findFieldById(id) {
 
 export async function findFields(id) {
     const collection = await getMongoCollection(COLLECTION_NAME)
-    const result =  collection.find()
+    const result =  collection.find().toArray()
     return result
 }
