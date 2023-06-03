@@ -1,4 +1,6 @@
-export default function Card({ 
+import Image from "next/image";
+
+export default function CardJogo({
   image,
   price,
   name,
@@ -7,32 +9,57 @@ export default function Card({
 }) {
   return (
     <>
-      <div className="absolute w-96 h-96 bg-[#020E16] rounded-lg border-solid  border-[0.7px] border-opacity-65 border-hex-153c58 left-14 top-84 flex flex-col justify-end p-4">
-        <div>
-          <div  className=" w-16 h-6 bg-blue-400 rounded left-8 top-88 flex justify-center">
-          {/* <img src="../src/images/courts_2048_1593712349.jpg" alt="Minha Imagem" /> */}
-            <p className="text-[#F4F4F9] text-center font-semibold">25€</p>
+      {/* WRAPPER */}
+      <div className="w-[368px] h-[304px] bg-primaryDarkestBlue rounded-lg border-primaryBlue border-solid border border-opacity-10 flex flex-col items-center pt-[10px] px-[10px] mb-5">
+        {/* IMAGE */}
+        <div className="relative w-full h-[208px] rounded-lg ">
+          <Image
+            src="/../public/images/ringMatriz.jpg" /* image */
+            width={364}
+            height={210}
+            alt="Fotografia do Ringue da Matriz"
+            className="rounded-lg block"
+          />
+
+          <div className="absolute w-[70.97px] h-[20px] bg-primaryBlue bottom-3 left-3 rounded-md">
+            <p className="text-center text-sm text-contrastOffWhite">
+              25 € {/* price */}
+            </p>
+          </div>
         </div>
-          <img />
-        </div>
-        <div> 
-          <h2 className="text-[#F4F4F9] font-semibold">Ringue Matriz</h2>
-          <span className="text-[#0C8CE9]">9:00-22:00</span>
-          <p className="text-[#F4F4F9]">Povoa de Varzim</p>
+
+        <div className="flex w-full pt-2 px-3 justify-between z-10 bg-primaryDarkestBlue border border-primaryDarkestBlue">
+          <div>
+            <h2 className="text-contrastOffWhite font-semibold text-m">
+              Ringue Matriz {/* name */}
+            </h2>
+
+            <span className="text-primaryBlue text-xs">09:00 - 22:00 {/* workingHours */}</span>
+
+            <span className="text-contrastOffWhite text-sm block">
+              Povoa de Varzim {/* location */}
+            </span>
+          </div>
+          <div className="flex items-center ">
+            <ul className="flex flex-wrap">
+              {" "}
+              {/* details */}
+              <li className="text-contrastOffWhite text-right text-xs opacity-50 w-1/2">
+                Bola
+              </li>
+              <li className="text-contrastOffWhite text-right text-xs opacity-50 w-1/2">
+                Sintético
+              </li>
+              <li className="text-contrastOffWhite text-right text-xs opacity-50 w-1/2">
+                Coletes
+              </li>
+              <li className="text-contrastOffWhite text-right text-xs opacity-50 w-1/2">
+                Balneário
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </>
   );
 }
-
-/**
- * DIV MAIN ABSORVE AS DUAS SEGUINTES
- * 1 DIV RENDERIZA A IMG DO CAMPO + 1 DIV PARA PREÇO DO CAMPO
- * 2 DIV RENDERIZA TODA A INFO:
- *  -NOME DO CAMPO: H2/H3?,
- *  -HORARIO: SPAN?,
- *  -TIPO DE CAMPO: IMG FIXA E TEXTO CHANGEABLE,
- *  -BOLA: IMG FIXA, TEXTO CHANGEABLE,
- *  -COLETE: IMG FIXA, TEXTO CHANGEABLE,
- *  -LOCALIZAÇÃO: SPAN?
- */
