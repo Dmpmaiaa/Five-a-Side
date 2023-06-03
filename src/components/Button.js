@@ -1,10 +1,15 @@
-export default function Button({ text, border, color }) {
+import { useRouter } from "next/router";
+
+export default function Button({ text, border, color, path }) {
+
+  const router = useRouter()
+
   return (
     <button
+      onClick={() => router.replace(path)}
       className={`rounded-full w-64 h-9 text-base text-contrastOffWhite bg-${
         color ? color : "transparent"
-      } ${border && 'border border-contrastOffWhite border-opacity-60'}`}
-      
+      } ${border && "border border-contrastOffWhite border-opacity-60"}`}
     >
       {text}
     </button>
