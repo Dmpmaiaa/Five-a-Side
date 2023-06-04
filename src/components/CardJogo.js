@@ -1,29 +1,25 @@
-export default function CardJogo({ 
+export default function CardGame({
     image,
-    price,
     name,
-    workingHours,
-    details,
+    location,
+    time,
+    date,
+    score,
   }) {
     return (
-      <>
-        <div className="absolute w-96 h-96 bg-[#020E16] rounded-lg border-solid  border-[0.7px] border-opacity-65 border-hex-153c58 left-14 top-84 flex flex-col justify-end p-4">
-          <div>
-
-            {/* <img src="../src/images/courts_2048_1593712349.jpg" alt="Minha Imagem" /> */}
-
+      <div className="relative w-347 h-24 bg-[#1A1F23] border-[0.3px] border-[rgba(244,244,249,0.55)] rounded-xl box-border">
+        {/* <img className="absolute w-22 h-22 left-7 top-0.5 rounded-xl object-cover" src={image} alt={name} /> */}
+        <div className="absolute left-30 top-4">
+          <p className="font-favoritHeavyC text-white text-lg">{name}</p>
+          <p className="font-favoritC text-white text-base mt-2">{location}</p>
+          <div className="absolute flex justify-between w-22 h-2.5 mt-7">
+            <p className="font-favoritC text-white text-sm">{time}</p>
+            <p className="font-favoritC text-white text-sm">{date}</p>
           </div>
-            <img />
-          </div>
-          <div> 
-            <h2 className="text-[#F4F4F9] font-semibold">Ringue Matriz</h2>
-            <p className="text-[#F4F4F9]">Povoa de Varzim</p>
-            <span className="text-[#0C8CE9]">16:00</span>
-            <span className="text-[#0C8CE9]">17/06/2023</span>
-            
-          </div>
-
-      </>
+        </div>
+        <div className="absolute right-0 top-3 w-22 h-10 bg-[#0C8CE9] rounded-lg flex items-center justify-center">
+          <p className="font-favoritC text-white text-sm">{score}</p>
+        </div>
+      </div>
     );
   }
-  
