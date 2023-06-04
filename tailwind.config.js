@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import plugin from 'tailwindcss'
+
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -22,9 +24,18 @@ module.exports = {
         75: '75%',
       },
       fontFamily : {
-        "favorite": ["FavoriteHeavyC"]
+        "favorite": ["Rift"]
       }
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addBase }) {
+      addBase({
+        '@font-face': {
+            fontFamily: 'Rift',
+            src: url("/src/assets/Fort\ Foundry\ -\ Rift\ Bold\ Italic.otf")
+        }
+      })
+    }),
+  ],
 }

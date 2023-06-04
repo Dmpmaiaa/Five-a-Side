@@ -13,10 +13,3 @@
     src: url("/src/assets/Fort\ Foundry\ -\ Rift\ Bold\ Italic.otf");
   }
 
-  @layer base {
-    @font-face {
-        font-family: FavoriteHeavyC;
-        font-weight: 400;
-        src: url("/src/assets/FavoritHeavyC.ttf") format("ttf");
-    }
-  }
