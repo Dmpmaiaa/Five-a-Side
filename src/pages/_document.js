@@ -8,7 +8,6 @@ export default function Document() {
       <body className="h-screen relative bg-primaryDarkerBlue flex flex-col items-center">
         <Main />
         <NextScript />
-       <Navbar />
       </body>
     </Html>
   );
