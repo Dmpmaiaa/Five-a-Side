@@ -17,7 +17,7 @@ export default function Login(props) {
 
                     <div className="flex flex-col items-center gap-14">
                         <Link href="/fields">
-                            <Button text={"Log In"} border={true} path={"/cards"} />
+                            <Button text={"Log In"} border={true} path={"/fields"} />
                         </Link>
                         <Link href="/">
                             <Button text={"Sign Up"} color={"primaryBlue"} path={"/"} />
