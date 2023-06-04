@@ -7,12 +7,12 @@ const COLLECTION_NAME = "campos";
 export async function findFieldById(id) {
     const collection = await getMongoCollection(COLLECTION_NAME);
     const result =  collection.findOne({ _id: new ObjectId(id) });
-    return res
+    return result
 }
 
 
 export async function findFields(id) {
     const collection = await getMongoCollection(COLLECTION_NAME)
-    const result =  collection.find()
+    const result =  collection.find().toArray()
     return result
 }
