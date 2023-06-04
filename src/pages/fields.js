@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Topbar from "@/components/Topbar";
 import { useEffect, useState } from "react";
 
-export default function CardsPage(props) {
+export default function Fields(props) {
     const [fields, setFields] = useState([]);
     const [moreInfo, setMoreInfo] = useState({ cardInfo: {}, show: false });
 
@@ -15,7 +15,9 @@ export default function CardsPage(props) {
     const fetchData = async () => {
         const res = await fetch("api/campos/");
         const data = await res.json();
+        console.log(await data)
         return await data;
+        
     };
 
     useEffect(() => {
@@ -33,9 +35,6 @@ export default function CardsPage(props) {
     };
 
 
-    useEffect(() => {
-
-    })
 
 
     return (
