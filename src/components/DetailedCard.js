@@ -1,7 +1,7 @@
 import Image from "next/image";
 import map from "#/images/mapa.PNG";
 import { useState } from "react";
-import { data } from "autoprefixer";
+
 
 export default function DetailedCard({
     image,
@@ -25,10 +25,12 @@ export default function DetailedCard({
         schedule: "11:00",
     };
 
+
+
     return (
         <>
             {/* CARD INFO */}
-            <div className="w-full bg-primaryDarkestBlue rounded-lg border-primaryBlue border-solid border border-opacity-10 flex flex-col items-center pt-[10px] px-[10px] pb-20">
+            <div className="w-screen absolute bottom-0 top-0 bg-primaryDarkestBlue rounded-lg border-primaryBlue border-solid border border-opacity-10 flex flex-col items-center pt-[10px] px-[10px] pb-20">
                 {/* IMAGE */}
                 <div className="relative w-full h-[300] rounded-lg ">
                     <Image
@@ -46,7 +48,6 @@ export default function DetailedCard({
                         </p>
                     </div>
                 </div>
-
                 <div className="flex w-full p-2 px-3 rounded-b-lg justify-between z-10 bg-primaryDarkestBlue border border-primaryDarkestBlue">
                     <div>
                         <h2 className="text-contrastOffWhite font-semibold text-m">
@@ -78,7 +79,6 @@ export default function DetailedCard({
                         </ul>
                     </div>
                 </div>
-
                 <section className="text-contrastOffWhite py-5 px-3">
                     <h5>Sobre</h5>
 
@@ -93,10 +93,8 @@ export default function DetailedCard({
                         className="rounded-lg block shadow-md"
                     />
                 </div>
-                <div>
-                    <input type="date"></input>
-                </div>
-                <div className="fixed h-20 bottom-0 w-screen flex justify-center items-end p-3 pb-5 bg-gradient-to-t from-black from-5% to-primaryDarkestBlue ">
+
+                <div className="fixed h-20 bottom-0 w-screen flex justify-center items-end pb-5 bg-gradient-to-t from-black from-5% to-gradientAlpha ">
                     <button
                         onClick={() => postGame(dataTosend)}
                         className="rounded-3xl w-48 h-8 bg-primaryBlue text-contrastOffWhite "

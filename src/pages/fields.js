@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Topbar from "@/components/Topbar";
 import { useEffect, useState } from "react";
 
+
 export default function Fields(props) {
     const [fields, setFields] = useState([]);
     const [moreInfo, setMoreInfo] = useState({ cardInfo: {}, show: false });

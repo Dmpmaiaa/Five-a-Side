@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-import plugin from 'tailwindcss'
+
 
 module.exports = {
   content: [
@@ -29,14 +29,9 @@ module.exports = {
       }
     },
   },
-  plugins: [
-    plugin(function ({ addBase }) {
-      addBase({
-        '@font-face': {
-            fontFamily: 'Rift',
-            src: url("/src/assets/Fort\ Foundry\ -\ Rift\ Bold\ Italic.otf")
-        }
-      })
-    }),
-  ],
+  plugins: [require("tw-elements/dist/plugin.cjs")],
+  darkMode: "class"
+    
+    
+  
 }

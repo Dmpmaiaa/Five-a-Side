@@ -1,4 +1,4 @@
 ## Bottom Navbar occupying space
-## Do not display Navbar in login page
-## Rerender on change
-## 
+Do not display Navbar in login page
+## Why is this rerenderizing on change 
+## Deal with dates
