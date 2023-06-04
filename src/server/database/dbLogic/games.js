@@ -10,9 +10,15 @@ export async function findGames() {
     const today = `${new Date().getDate()}${
         new Date().getMonth() + 1
     }${new Date().getFullYear()}`;
-    const result = await collection.find({ date: today }).toArray();
 
-    return result;
+    const result = await collection.find({ date: today }).toArray();
+    console.log(typeof Number(result[0].schedule.slice(0, -3)));
+    const orderedResult = await result.sort(
+        (a, b) =>
+            Number(a.schedule.slice(0, -3)) - Number(b.schedule.slice(0, -3))
+    );
+
+    return orderedResult;
 }
 
 export async function findGameById(id) {

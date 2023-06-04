@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 const TimeInput = () => {
   const [time, setTime] = useState({
     day: new Date().getDate(),
-    month: new Date().getMonth()  + 1,
+    month: new Date().getMonth() + 1,
 
   });
 
@@ -55,7 +55,7 @@ const TimeInputUnit = ({ value, setValue, maxValue }) => {
   const handleScroll = () => {
     if (containerRef.current) {
       const scrollTop = containerRef.current.scrollTop;
-      const itemHeight = 70; // assuming all items have the same height
+      const itemHeight = 50; // assuming all items have the same height
       const newValue = Math.round(scrollTop / itemHeight);
       setValue(newValue);
     }

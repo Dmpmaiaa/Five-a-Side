@@ -8,6 +8,7 @@ export default function Fields(props) {
     const [fields, setFields] = useState([]);
     const [moreInfo, setMoreInfo] = useState({ cardInfo: {}, show: false });
 
+
     const cleanState = (bool) => {
         bool && setMoreInfo({ moreInfo: {}, show: false });
     };
@@ -34,6 +35,19 @@ export default function Fields(props) {
         console.log(data.field);
     };
 
+    const postGame = async (gameData) => {
+     
+        const res = await fetch("/api/jogos/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(gameData),
+        })
+        const data = await res.json();
+        console.log(await data);
+    };
+    
 
 
 
@@ -41,6 +55,7 @@ export default function Fields(props) {
         <div className="flex flex-col items-center">
             {moreInfo.show ? (
                 <DetailedCard
+                    fieldId={moreInfo.cardInfo._id}
                     moreOptions={() => cleanState(true)}
                     name={moreInfo.cardInfo.name}
                     image={moreInfo.cardInfo.img}
@@ -49,6 +64,7 @@ export default function Fields(props) {
                     location={moreInfo.cardInfo.location}
                     description={moreInfo.cardInfo.description}
                     details={moreInfo.cardInfo.details}
+                    postGame={(dataTosend) => postGame(dataTosend)}
                 />
             ) : (
                 <>
