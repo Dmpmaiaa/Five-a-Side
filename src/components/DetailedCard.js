@@ -78,8 +78,11 @@ export default function DetailedCard({
             className="rounded-lg block shadow-md"
           />
         </div>
-        <div className="fixed h-20 bottom-0 w-screen flex justify-center items-end p-3 pb-5 bg-gradient-to-t from-primaryDarkestBlue from-75% to-gradientAlpha backdrop-blur-sm ">
-          <button className="rounded-3xl w-48 h-8 bg-primaryBlue">
+        <div>
+            <input type="date"></input>
+        </div>
+        <div className="fixed h-20 bottom-0 w-screen flex justify-center items-end p-3 pb-5 bg-gradient-to-t from-black from-5% to-primaryDarkestBlue ">
+          <button className="rounded-3xl w-48 h-8 bg-primaryBlue text-contrastOffWhite">
             Reserva
           </button>
         </div>
