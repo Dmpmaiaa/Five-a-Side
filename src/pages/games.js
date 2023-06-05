@@ -3,27 +3,9 @@ import Navbar from "@/components/Navbar";
 import { useEffect, useState } from "react";
 
 export default function Games(props) {
-    // useEffect(() => {
-    //     async function authorize() {
-    //       if (localStorage.getItem("token")) {
-    //         const res = await fetch("/api/posts", {
-    //           method: "GET",
-    //           headers: {
-    //             "authorization": localStorage.getItem("token")
-    //           }
-    //         })
-
-    //         if (res.status === 200) {
-    //           console.log("NICE")
-    //         } else {
-    //           console.log("NOT NICE")
-    //         }
-    //       }
-    //     }
-    //     authorize()
-    //   }, [])
     const [gamesScheduled, setGamesScheduled] = useState([]);
-    const [fieldInfo, setFieldInfo] = useState();
+    const [fieldInfo, setFieldInfo] = useState([]);
+
 
     const fetchData = async () => {
         const res = await fetch("/api/jogos");
@@ -32,6 +14,7 @@ export default function Games(props) {
         const fieldData = await fieldRes.json();
         setGamesScheduled(await data);
         setFieldInfo(await fieldData);
+        console.log(fieldData[1].img)
     };
 
     useEffect(() => {
@@ -39,10 +22,11 @@ export default function Games(props) {
             await fetchData();
         })();
     }, []);
-
+    
     const findCorrectField = (id) => {
         return fieldInfo.find((ele) => ele._id === id);
     };
+   
 
     const signToGame = async (uid, gid) => {
         const res = await fetch(`/api/jogos/${gid}`, {
@@ -93,9 +77,9 @@ export default function Games(props) {
                     <GameCard
                         key={ele._id}
                         gameId={ele._id}
-                        img={findCorrectField(ele.idCampo).img}
-                        field={findCorrectField(ele.idCampo).name}
-                        location={findCorrectField(ele.idCampo).location}
+                        img={findCorrectField(ele.idCampo)?.img}
+                        field={findCorrectField(ele.idCampo)?.name}
+                        location={findCorrectField(ele.idCampo)?.location}
                         numPlayer={ele.playerNumbers}
                         participants={ele.idPlayers}
                         schedule={ele.schedule}

@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import Button from "@/components/Button";
 import Card from "@/components/Card";
 import { useEffect, useState } from "react";

@@ -13,6 +13,7 @@ module.exports = {
         primaryBlue: '#0C8CE9',
         primaryDarkerBlue:'#1A1F23',
         primaryDarkestBlue: '#020E16',
+        darkBlueBtn:"#0E273A",
         contrastOffWhite:'#FAFFDC',
         secondaryGreen:'#13AE5C',
         secondaryRed: '#F34822',
