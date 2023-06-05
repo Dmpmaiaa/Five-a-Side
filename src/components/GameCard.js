@@ -1,37 +1,48 @@
 import Image from "next/image";
+import { useState } from "react";
 
 export default function GameCard({
+    gameId,
     field,
     img,
     location,
     numPlayer,
     schedule,
     date,
+    participants,
+    signToGame
 }) {
-
+   
 
     return (
-        <div className=" w-[347px] h-[99px] text-white flex items-center w-screen rounded-lg border-primaryBlue border-solid border border-opacity-10 justify-items-end" >
-            <div className="flex flex-col w-1/3">
-                Imagem
-                <Image src={img} width={0} height={0} />
+        <div className="text-white w-screen flex items-center justify-around">
+            <div className="flex flex-col">
+                <Image
+                    src={img}
+                    width={100}
+                    height={100}
+                    alt="Fotografia do campo"
+                    className="rounded-[10px]"
+                />
             </div>
 
-            <div className="flex flex-col w-1/3">
-                
-                <p className="text-contrastOffWhite font-semibold text-m">{field}Ringue da Matriz</p>
+            <div className="flex flex-col pt-3 pe-3 pb-3 leading-9">
+                <p className="text-m">{field}</p>
 
-                <p>{location}Póvoa de Varzim</p>
-                <div className="space-x-1 ">
-                <span className="text-xs text-contrastOffWhite">{schedule}16:00</span>
-                <span className="text-xs text-contrastOffWhite">{date}13/2/2023</span>
+                <p className="text-xs">{location}</p>
+                <div className="flex gap-2 text-xs">
+                    <span>{`${date[0] + date[1]}/${
+                        date[2] + date[3]
+                    }/${date.slice(4)}`}</span>
+                    <span>{schedule}</span>
                 </div>
             </div>
-
-                <div className=" w-[71px]h-[21px] px-3 bg-primaryBlue rounded-md space-around">
-                    <span>{numPlayer}6/10</span>
+            <div>
+                <div className={`flex ${numPlayer < 8 ? 'bg-primaryBlue' : 'bg-secondaryYellow text-primaryDarkestBlue'} w-14 rounded justify-center m-2 text-sm `}
+                onClick={(uid, gid) => signToGame('6479ec3f1de2044d9892aaba', gameId)}>
+                    <span>{numPlayer}</span>
                 </div>
-
+            </div>
         </div>
     );
 }

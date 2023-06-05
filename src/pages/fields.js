@@ -4,9 +4,31 @@ import Navbar from "@/components/Navbar";
 import Topbar from "@/components/Topbar";
 import { useEffect, useState } from "react";
 
+
 export default function Fields(props) {
+    useEffect(() => {
+        async function authorize() {
+          if (localStorage.getItem("token")) {
+            const res = await fetch("/api/posts", {
+              method: "GET",
+              headers: {
+                "authorization": localStorage.getItem("token")
+              }
+            })
+    
+            if (res.status === 200) {
+              console.log("NICE")
+            } else {
+              console.log("NOT NICE")
+            }
+          }
+        }
+        authorize()
+      }, [])
+      
     const [fields, setFields] = useState([]);
     const [moreInfo, setMoreInfo] = useState({ cardInfo: {}, show: false });
+
 
     const cleanState = (bool) => {
         bool && setMoreInfo({ moreInfo: {}, show: false });
@@ -15,7 +37,6 @@ export default function Fields(props) {
     const fetchData = async () => {
         const res = await fetch("api/campos/");
         const data = await res.json();
-        console.log(await data)
         return await data;
         
     };
@@ -34,13 +55,31 @@ export default function Fields(props) {
         console.log(data.field);
     };
 
+    const postGame = async (gameData) => {
+     
+        const res = await fetch("/api/jogos/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(daodsDeUtikizador),
+        })
+        const data = await res.json();
+        console.log(await data);
+    };
 
+    
 
+daodsDeUtikizador : useState({
+    name: "andrezza",
+    idade:"x"
+})
 
     return (
         <div className="flex flex-col items-center">
             {moreInfo.show ? (
                 <DetailedCard
+                    fieldId={moreInfo.cardInfo._id}
                     moreOptions={() => cleanState(true)}
                     name={moreInfo.cardInfo.name}
                     image={moreInfo.cardInfo.img}
@@ -49,6 +88,7 @@ export default function Fields(props) {
                     location={moreInfo.cardInfo.location}
                     description={moreInfo.cardInfo.description}
                     details={moreInfo.cardInfo.details}
+                    postGame={(dataTosend) => postGame(dataTosend)}
                 />
             ) : (
                 <>

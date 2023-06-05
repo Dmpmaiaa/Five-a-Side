@@ -36,7 +36,7 @@ export default async function handler(req, res) {
 
         if (req.method === "POST") {
             const data = req.body;
-
+            console.log(data)
             const dataForGame = await newGame(data);
             return res.status(201).json({ dataForGame });
         }
