@@ -11,6 +11,8 @@
   "dependencies": {
     "autoprefixer": "10.4.14",
     "framer-motion": "^10.12.16",
+    "leaflet": "^1.9.4",
+    "moment": "^2.29.4",
     "mongodb": "^5.5.0",
     "next": "13.4.4",
     "postcss": "8.4.24",
