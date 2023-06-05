@@ -9,7 +9,6 @@ export default function GameCard({
     numPlayer,
     schedule,
     date,
-    participants,
     signToGame
 }) {
    

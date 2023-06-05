@@ -27,6 +27,7 @@ export default function Card({
                 {/* IMAGE */}
                 <div className="relative w-full rounded-lg h-[208px]">
                     <Image
+                        priority
                         src={image} /* image */
                         width={364}
                         height={210}
