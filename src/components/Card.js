@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function Card({
     image,
@@ -10,14 +12,20 @@ export default function Card({
     cardId,
     moreOptions,
 }) {
+    const [open, setOpen] = useState(false);
+
     return (
         <>
-            <div
-                onClick={() => moreOptions(cardId)}
-                className="w-[368px] h-[304px] bg-primaryDarkestBlue rounded-lg border-primaryBlue border-solid border border-opacity-10 flex flex-col items-center pt-[10px] px-[10px] mb-5"
+            <motion.div
+                animate={{
+                    height: open ? "140vh" : "328px",
+                    translateY: open ? "-60px" : "s0px"
+                }}
+                onClick={() => setOpen(!open)}
+                className="w-[368px] bg-primaryDarkestBlue rounded-lg border-primaryBlue border-solid border border-opacity-10 flex flex-col items-center pt-[10px] px-[10px] mb-5"
             >
                 {/* IMAGE */}
-                <div className="relative w-full h-[208px] rounded-lg ">
+                <div className="relative w-full rounded-lg h-[208px]">
                     <Image
                         src={image} /* image */
                         width={364}
@@ -64,7 +72,18 @@ export default function Card({
                         </ul>
                     </div>
                 </div>
-            </div>
+                <motion.div
+                    animate={{
+                        opacity: open ? "1" : "0",
+                        transform: !open
+                            ? "translateY(100px)"
+                            : "translateY(0px)",
+                    }}
+                    className="text-contrastOffWhite"
+                >
+                    asihfasf
+                </motion.div>
+            </motion.div>
         </>
     );
 }

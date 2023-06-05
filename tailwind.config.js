@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-import plugin from 'tailwindcss'
+
 
 module.exports = {
   content: [
@@ -16,6 +16,7 @@ module.exports = {
         contrastOffWhite:'#FAFFDC',
         secondaryGreen:'#13AE5C',
         secondaryRed: '#F34822',
+        secondaryYellow: "#FFD500",
         gradientAlpha: "rgba(2,14,12,0.7)"
       },
       backgroundImage : {
@@ -29,14 +30,8 @@ module.exports = {
       }
     },
   },
-  plugins: [
-    plugin(function ({ addBase }) {
-      addBase({
-        '@font-face': {
-            fontFamily: 'Rift',
-            src: url("/src/assets/Fort\ Foundry\ -\ Rift\ Bold\ Italic.otf")
-        }
-      })
-    }),
-  ],
+  darkMode: "class"
+    
+    
+  
 }
