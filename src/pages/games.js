@@ -3,30 +3,28 @@ import Navbar from "@/components/Navbar";
 import { useEffect, useState } from "react";
 
 export default function Games(props) {
-    useEffect(() => {
-        async function authorize() {
-          if (localStorage.getItem("token")) {
-            const res = await fetch("/api/posts", {
-              method: "GET",
-              headers: {
-                "authorization": localStorage.getItem("token")
-              }
-            })
-    
-            if (res.status === 200) {
-              console.log("NICE")
-            } else {
-              console.log("NOT NICE")
-            }
-          }
-        }
-        authorize()
-      }, [])
-      
+    // useEffect(() => {
+    //     async function authorize() {
+    //       if (localStorage.getItem("token")) {
+    //         const res = await fetch("/api/posts", {
+    //           method: "GET",
+    //           headers: {
+    //             "authorization": localStorage.getItem("token")
+    //           }
+    //         })
+
+    //         if (res.status === 200) {
+    //           console.log("NICE")
+    //         } else {
+    //           console.log("NOT NICE")
+    //         }
+    //       }
+    //     }
+    //     authorize()
+    //   }, [])
     const [gamesScheduled, setGamesScheduled] = useState([]);
     const [fieldInfo, setFieldInfo] = useState();
 
- 
     const fetchData = async () => {
         const res = await fetch("/api/jogos");
         const fieldRes = await fetch("/api/campos");
@@ -55,10 +53,14 @@ export default function Games(props) {
             body: JSON.stringify(uid),
         });
         const data = await res.json();
-        fetchData()
+        fetchData();
     };
 
-
+    const sortByWeek = async (time) => {
+        const res = await fetch(`/api/jogos/?date=${time}`);
+        const data = await res.json()
+        setGamesScheduled(await data)
+    };
 
     return (
         <div className="bg-primaryDarkestBlue h-screen ">
@@ -67,14 +69,20 @@ export default function Games(props) {
                     className="bg-primaryDarkerBlue w-[290px] h-[42
                     8px]  rounded-full flex justify-between items-center text-contrastOffWhite p-1.5"
                 >
-                    <button className="rounded-full h-[34px] bg-primaryDarkestBlue w-[119px]">
+                    <button
+                        onClick={fetchData}
+                        className="rounded-full h-[34px] bg-primaryDarkestBlue w-[119px] cursor-pointer"
+                    >
                         Hoje
                     </button>
-                    <button className="rounded-full h-[34px]  w-[119px]">
+                    <button
+                        onClick={() => sortByWeek('week')}
+                        className="rounded-full h-[34px]  w-[119px]"
+                    >
                         Semana
                     </button>
                     <button className="rounded-full h-[34px] w-[119px]">
-                        Dia
+                        Mês
                     </button>
                 </div>
             </div>

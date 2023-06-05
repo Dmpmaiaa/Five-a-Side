@@ -19,9 +19,10 @@ export default async function handler(req, res) {
         }
 
         if (req.method === "GET" && date) {
+
             const games = await getGamesByDate(date);
             if (games) {
-                return res.status(200).json({ games });
+                return res.status(200).json(games);
             }
             return res.status(404).json(/* MENSAGEM DE ERRO */);
         }
@@ -36,7 +37,6 @@ export default async function handler(req, res) {
 
         if (req.method === "POST") {
             const data = req.body;
-            console.log(data)
             const dataForGame = await newGame(data);
             return res.status(201).json({ dataForGame });
         }

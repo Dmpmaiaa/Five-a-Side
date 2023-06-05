@@ -6,20 +6,8 @@ const COLLECTION_NAME = "games";
 // ********* --- FIND ITEMS --- *********
 
 export async function findGames() {
-
-    
     const collection = await getMongoCollection(COLLECTION_NAME);
-    const day =
-        new Date().getDate() < 10
-            ? "0" + new Date().getDate()
-            : new Date().getDate();
-    const month =
-        new Date().getMonth() + 1 < 10
-            ? "0" + Number(new Date().getMonth() + 1)
-            : Number(new Date().getMonth() + 1);
-
-    const today = `${day}${month}${new Date().getFullYear()}`;
-
+    const today = formataData(new Date());
     const result = await collection.find({ date: today }).toArray();
 
     const orderedResult = await result.sort(
@@ -41,7 +29,7 @@ export async function findGamesByLocation(location) {
     console.log(location);
     const result = await collection
         .find({
-            idLocation: new ObjectId("6479c2a71de2044d9892aa9f"),
+            idLocation: new ObjectId(location),
         })
         .toArray();
     return result;
@@ -49,17 +37,40 @@ export async function findGamesByLocation(location) {
 
 export async function findGamesByDate(date) {
     const collection = await getMongoCollection(COLLECTION_NAME);
+    const currentDate = new Date();
+    const startOfWeek = getStartDate(currentDate);
+    const endOfWeek = getEndOfWeek(currentDate);
 
-    const result = await collection
-        .find({
-            date: date,
-        })
-        .toArray();
-    return result;
+    if (date === "week") {
+        const result = await collection
+            .find({
+                date: {
+                    $gte: parseDate(startOfWeek),
+                    $lte: parseDate(endOfWeek),
+                },
+            })
+            .toArray();
+
+        return result;
+    } else if (date === "month") {
+        const result = await collection
+            .find({
+                $expr: {
+                    $eq: [
+                        {
+                            $month: {
+                                $dateFromString: { dateString: "$date" },
+                            },
+                        },
+                        currentDate.getMonth() + 1,
+                    ],
+                },
+            })
+            .toArray();
+
+        return result;
+    }
 }
-
-// ********* --- INSERT ITEMS --- *********
-
 export async function createNewGame(data) {
     const collection = await getMongoCollection(COLLECTION_NAME);
     const result = collection.insertOne(data);
@@ -79,10 +90,9 @@ export async function addNewPlayer(uid, gameId) {
                 $inc: { playerNumbers: 1 },
             }
         );
-        return result
-    } else{
-        return "game_is_full"
-
+        return result;
+    } else {
+        return "game_is_full";
     }
-
 }
+
