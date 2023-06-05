@@ -16,11 +16,11 @@ const inter = Inter({ subsets: ['latin'] })
 
 import React from 'react';
 
-const LoginForm = () => {
+ const LoginForm = () => {
   
  
 return (   
-  
+ 
   <form className="w-full max-w-sm">
   <div className="flex items-center w-80 border-b border-[offWhite] py-3">
     <input
@@ -47,8 +47,18 @@ return (
       <Image src="/images/minha-imagem.jpg" alt="Minha Imagem" width={1000} height={200} />
     </div>
 </form>
+
+
+
+
+
+
+
 );
 };
+
+
+
 
 
 

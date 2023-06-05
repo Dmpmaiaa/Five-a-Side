@@ -6,6 +6,14 @@
   font-family: FavoritHeavy;
   src: url(../assets/FavoritHeavyC.ttf);
 }
+@font-face {
+  font-family: Favorit ;
+  src: url(../assets/FavoritC.ttf);
+}
+@font-face {
+  font-family: Rift ;
+  src: url();
+}
 
 :root {
   --foreground-rgb: 0, 0, 0;
