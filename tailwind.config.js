@@ -16,6 +16,7 @@ module.exports = {
         contrastOffWhite:'#FAFFDC',
         secondaryGreen:'#13AE5C',
         secondaryRed: '#F34822',
+        secondaryYellow: "#FFD500",
         gradientAlpha: "rgba(2,14,12,0.7)"
       },
       backgroundImage : {
@@ -29,7 +30,6 @@ module.exports = {
       }
     },
   },
-  plugins: [require("tw-elements/dist/plugin.cjs")],
   darkMode: "class"
     
     

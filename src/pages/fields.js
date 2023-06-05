@@ -17,7 +17,6 @@ export default function Fields(props) {
     const fetchData = async () => {
         const res = await fetch("api/campos/");
         const data = await res.json();
-        console.log(await data)
         return await data;
         
     };
@@ -43,14 +42,18 @@ export default function Fields(props) {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(gameData),
+            body: JSON.stringify(daodsDeUtikizador),
         })
         const data = await res.json();
         console.log(await data);
     };
+
     
 
-
+daodsDeUtikizador : useState({
+    name: "andrezza",
+    idade:"x"
+})
 
     return (
         <div className="flex flex-col items-center">

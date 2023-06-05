@@ -4,41 +4,41 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Login(props) {
-    const [loggedIn, setLoggedIn] = useState(true);
-    const [state, setState] = useState({ password: "", email: "" });
+    // const [loggedIn, setLoggedIn] = useState(true);
+    // const [state, setState] = useState({ password: "", email: "" });
 
-    useEffect(() => {
-        setInterval(() => {
-            setLoggedIn(Boolean(localStorage.getItem("token")));
-        }, 1000);
-    }, []);
+    // useEffect(() => {
+    //     setInterval(() => {
+    //         setLoggedIn(Boolean(localStorage.getItem("token")));
+    //     }, 1000);
+    // }, []);
 
 
-    async function login() {
-        const res = await fetch("/api/auth/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(state),
-        });
+    // async function login() {
+    //     const res = await fetch("/api/auth/login", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //         body: JSON.stringify(state),
+    //     });
 
-        if (res.status === 200) {
-            const corpo = await res.json();
-            localStorage.setItem("token", corpo.token);
-        } else {
-            console.log('wrong')
-        }
+    //     if (res.status === 200) {
+    //         const corpo = await res.json();
+    //         localStorage.setItem("token", corpo.token);
+    //     } else {
+    //         console.log('wrong')
+    //     }
 
-        const handleSubmit = (e) => {
-            e.preventDefault()
-            login()
-          }
-          const handleChange = (value, field) => {
-            setState(s => ({ ...s, [field]: value }))
-          }
+    //     const handleSubmit = (e) => {
+    //         e.preventDefault()
+    //         login()
+    //       }
+    //       const handleChange = (value, field) => {
+    //         setState(s => ({ ...s, [field]: value }))
+    //       }
 
-    }
+    // }
     return (
         <div className="bg-login-bg bg-auto bg-no-repeat bg-left h-screen grayscale-75 -z-20">
             <div className="h-screen w-full bg-gradient-to-b from-[#211a1db7] to-[#00000014] -z-10">
@@ -52,7 +52,7 @@ export default function Login(props) {
                     </div>
 
                     <div className="flex flex-col items-center gap-14">
-                        <Link href={`${loggedIn ? "/fields" : "/login"}`}>
+                        <Link href={`/fields`}>
                             <Button
                                 text={"Log In"}
                                 border={true}
@@ -60,7 +60,7 @@ export default function Login(props) {
                             />
 
                         </Link>
-                        <Link href={`${loggedIn ? "/" : "/login"}`}>
+                        <Link href={`/`}>
                             <Button
                                 text={"Sign Up"}
                                 color={"primaryBlue"}
