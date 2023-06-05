@@ -8,7 +8,7 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {
+    extend: {   
       colors: {
         primaryBlue: '#0C8CE9',
         primaryDarkerBlue:'#1A1F23',
