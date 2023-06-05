@@ -6,6 +6,8 @@ const COLLECTION_NAME = "games";
 // ********* --- FIND ITEMS --- *********
 
 export async function findGames() {
+
+    
     const collection = await getMongoCollection(COLLECTION_NAME);
     const day =
         new Date().getDate() < 10
