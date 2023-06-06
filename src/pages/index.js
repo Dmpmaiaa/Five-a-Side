@@ -29,7 +29,7 @@ export default function Home() {
 
     return (
         <>
-            <h1 className="text-contrastOffWhite">HOME</h1>
+            <h1 className="text-contrastOffWhite" style={{ fontFamily: "Rift" }} >HOME</h1>
             {/* const [loggedIn, setLoggedIn] = useState(Boolean(localStorage.getItem("token"))) */}
         </>
     );

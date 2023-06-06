@@ -59,6 +59,7 @@ export default function Games(props) {
                     className="bg-primaryDarkerBlue w-[310px] h-[42
                     8px] rounded-full flex justify-center items-center text-contrastOffWhite py-2"
                 >
+                   
            
 
                     <motion.div className="flex  w-[290px] justify-center">
@@ -75,6 +76,8 @@ export default function Games(props) {
                    
                 </div>
             </div>
+
+            
 
             <div className="flex flex-col items-center w-full">
                 {gamesScheduled?.map((ele) => (

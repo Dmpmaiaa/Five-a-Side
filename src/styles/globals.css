@@ -5,11 +5,25 @@
 
 @font-face {
     font-family: "FavoriteHeavyC";
-    src: url("/src/assets/FavoritHeavyC.ttf");
+    src: url("../assets/FavoritHeavyC.ttf");
   }
 
 @font-face {
-    font-family: Rift;
-    src: url("/src/assets/Fort\ Foundry\ -\ Rift\ Bold\ Italic.otf");
+    font-family: "Rift";
+    src: url("../assets/Fort\ Foundry\ -\ Rift\ Bold\ Italic.otf");
   }
 
+  @font-face {
+    font-family: "FavoritC";
+    src: url("../assets/FavoritC.ttf");
+  }
+
+  @font-face {
+    font-family: "RiftItalic";
+    src: url("../assets/Fort\ Foundry\ -\ Rift\ Italic.otf");
+  }
+
+  @font-face {
+    font-family: "RiftRegular";
+    src: url("../assets/Fort\ Foundry\ -\ Rift-Regular.otf");
+  }
