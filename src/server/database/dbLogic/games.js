@@ -84,7 +84,6 @@ export async function findGamesByLocation(location) {
 export async function createNewGame(data) {
   const collection = await getMongoCollection(COLLECTION_NAME);
   const result = collection.insertOne(data);
-  console.log('oi')
   return result;
 }
 

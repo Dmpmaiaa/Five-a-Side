@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, LayoutGroup, AnimateSharedLayout } from "framer-motion";
 
 const buttons = [
-    { label: "Dia", value: "day" },
+    { label: "Dia", value:  "day" },
     { label: "Semana", value: "week" },
     { label: "Mês", value: "month" },
 ];
@@ -16,11 +16,8 @@ export default function Games(props) {
 
     const fetchData = async () => {
         const res = await fetch("/api/jogos");
-        const fieldRes = await fetch("/api/campos");
         const data = await res.json();
-        const fieldData = await fieldRes.json();
         setGamesScheduled(await data);
-        setFieldInfo(await fieldData);
 
     };
 
@@ -48,9 +45,15 @@ export default function Games(props) {
 
     const sortByWeek = async (time) => {
         const res = await fetch(`/api/jogos/?date=${time}`);
-        const data = await res.json();
+        const data = await res.json()
         setGamesScheduled(await data);
+       
     };
+
+    useEffect(() =>{
+        sortByWeek(prevState => selected)
+        console.log('oi')
+    }, [selected])
 
     return (
         <div className="bg-primaryDarkestBlue h-screen ">
@@ -80,21 +83,21 @@ export default function Games(props) {
             
 
             <div className="flex flex-col items-center w-full">
-                {gamesScheduled?.map((ele) => (
-                    //fetch do campo
+                {gamesScheduled && gamesScheduled?.map((ele) => (
+
                     <GameCard
                         key={ele._id}
                         gameId={ele._id}
-                        img={findCorrectField(ele.idCampo)?.img}
-                        field={findCorrectField(ele.idCampo)?.name}
-                        location={findCorrectField(ele.idCampo)?.location}
-                        numPlayer={ele.playerNumbers}
+                        fieldId={ele.idLocation}
+                        numPlayer={ele.playersNumber}
                         participants={ele.idPlayers}
                         schedule={ele.schedule}
                         date={ele.date}
                         signToGame={(uid, gid) => signToGame(uid, gid)}
                     />
                 ))}
+
+                 <button className="bg-white rounded" onClick={() => console.log(gamesScheduled)}>OKADOPAS</button>
 
                 <Navbar />
             </div>
