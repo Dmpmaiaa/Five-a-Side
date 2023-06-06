@@ -9,10 +9,8 @@ export default function GameCard({
     numPlayer,
     schedule,
     date,
-    signToGame
+    signToGame,
 }) {
-   
-
     return (
         <div className="text-white w-screen flex items-center justify-around">
             <div className="flex flex-col">
@@ -37,8 +35,16 @@ export default function GameCard({
                 </div>
             </div>
             <div>
-                <div className={`flex ${numPlayer < 8 ? 'bg-primaryBlue' : 'bg-secondaryYellow text-primaryDarkestBlue'} w-14 rounded justify-center m-2 text-sm `}
-                onClick={(uid, gid) => signToGame('6479ec3f1de2044d9892aaba', gameId)}>
+                <div
+                    className={`flex ${
+                        numPlayer < 8
+                            ? "bg-primaryBlue"
+                            : "bg-secondaryYellow text-primaryDarkestBlue"
+                    } w-14 rounded justify-center m-2 text-sm `}
+                    onClick={(uid, gid) =>
+                        signToGame("6479ec3f1de2044d9892aaba", gameId)
+                    }
+                >
                     <span>{numPlayer}</span>
                 </div>
             </div>

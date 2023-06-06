@@ -114,3 +114,4 @@ export async function addNewPlayer(uid, gameId) {
     return "player_already_signed";
   }
 }
+
