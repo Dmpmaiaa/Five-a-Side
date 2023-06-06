@@ -4,23 +4,25 @@ import Navbar from "@/components/Navbar";
 import Topbar from "@/components/Topbar";
 import { useEffect, useState } from "react";
 
-
 export default function Fields(props) {
-   
-      
     const [fields, setFields] = useState([]);
-    const [moreInfo, setMoreInfo] = useState({ cardInfo: {}, show: false });
+    const [dataToSend, setDataToSend] = useState({
+        date: "",
+        participants: "",
+    });
 
-
-    const cleanState = (bool) => {
-        bool && setMoreInfo({ moreInfo: {}, show: false });
+    const handleData = (e) => {
+        setDataToSend((prevState) => ({
+            ...prevState,
+            date: new Date(e.target.value),
+        }));
     };
+
 
     const fetchData = async () => {
         const res = await fetch("api/campos/");
         const data = await res.json();
         return await data;
-        
     };
 
     useEffect(() => {
@@ -30,31 +32,28 @@ export default function Fields(props) {
         })();
     }, []);
 
-    const getCard = async (id) => {
-        const res = await fetch(`api/campos/${id}`);
-        const data = await res.json();
-        setMoreInfo({ cardInfo: data.field, show: true });
-        console.log(data.field);
-    };
+    // const getCard = async (id) => {
+    //     const res = await fetch(`api/campos/${id}`);
+    //     const data = await res.json();
+    //     setMoreInfo({ cardInfo: data.field, show: true });
+    //     console.log(data.field);
+    // };
 
     const postGame = async (gameData) => {
-     
         const res = await fetch("/api/jogos/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(daodsDeUtikizador),
-        })
+        });
         const data = await res.json();
         console.log(await data);
     };
 
-
-
     return (
         <div className="flex flex-col items-center">
-            {moreInfo.show ? (
+            {/* {moreInfo.show ? (
                 <DetailedCard
                     fieldId={moreInfo.cardInfo._id}
                     moreOptions={() => cleanState(true)}
@@ -67,28 +66,28 @@ export default function Fields(props) {
                     details={moreInfo.cardInfo.details}
                     postGame={(dataTosend) => postGame(dataTosend)}
                 />
-            ) : (
-                <>
-                    <Topbar />
-                    <ul>
-                        {fields?.map((ele) => (
-                            <li key={ele._id}>
-                                <Card
-                                    cardId={ele._id}
-                                    image={ele.img}
-                                    price={ele.price}
-                                    name={ele.name}
-                                    workingHours={ele.hoursOpen}
-                                    location={ele.location}
-                                    details={ele.details}
-                                    moreOptions={() => getCard(ele._id)}
-                                />
-                            </li>
-                        ))}
-                    </ul>
-                    <Navbar />
-                </>
-            )}
+            ) : ( */}
+            <>
+                <Topbar />
+                <ul>
+                    {fields?.map((ele) => (
+                        <li key={ele._id}>
+                            <Card
+                                cardId={ele._id}
+                                image={ele.img}
+                                price={ele.price}
+                                name={ele.name}
+                                workingHours={ele.hoursOpen}
+                                location={ele.location}
+                                details={ele.details}
+                                description={ele.description}
+                                handleData={(e) => handleData(e)}
+                            />
+                        </li>
+                    ))}
+                </ul>
+                <Navbar />
+            </>
         </div>
     );
 }
