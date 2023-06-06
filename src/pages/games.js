@@ -21,7 +21,7 @@ export default function Games(props) {
         const fieldData = await fieldRes.json();
         setGamesScheduled(await data);
         setFieldInfo(await fieldData);
-        console.log(fieldData[1].img);
+
     };
 
     useEffect(() => {

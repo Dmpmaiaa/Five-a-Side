@@ -10,7 +10,7 @@ const COLLECTION_NAME = "games";
 export async function findGames() {
   const collection = await getMongoCollection(COLLECTION_NAME);
   const currentDate = moment().format("YYYY-MM-DD");
-  console.log(new Date(currentDate));
+
 
   const day = {
     date: {
@@ -84,6 +84,7 @@ export async function findGamesByLocation(location) {
 export async function createNewGame(data) {
   const collection = await getMongoCollection(COLLECTION_NAME);
   const result = collection.insertOne(data);
+  console.log('oi')
   return result;
 }
 

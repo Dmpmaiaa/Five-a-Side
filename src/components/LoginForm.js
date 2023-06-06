@@ -16,16 +16,7 @@ export default function LoginForm(props) {
             const corpo = await res.json();
             localStorage.setItem("token", corpo.token);
         } else {
-            // toast.error('NOPE!', {
-            //   position: "bottom-right", 
-            //   autoClose: 5000,
-            //   hideProgressBar: false,
-            //   closeOnClick: true,
-            //   pauseOnHover: true,
-            //   draggable: true,
-            //   progress: undefined,
-            //   theme: "light",
-            // });
+         
             console.log(nope);
         }
     }
