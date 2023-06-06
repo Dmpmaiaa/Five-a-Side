@@ -1,10 +1,8 @@
 import Image from "next/image";
 
 import Button from "@/components/Button";
-import Card from "@/components/Card";
+import Card from "@/components/FieldCard/Card";
 import { useEffect, useState } from "react";
-import LoginForm from "@/components/LoginForm";
-import TimeInput from "@/components/Date";
 
 export default function Home() {
     useEffect(() => {

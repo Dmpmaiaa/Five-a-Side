@@ -3,7 +3,7 @@ import map from "#/images/mapa.PNG";
 import { useState } from "react";
 
 
-export default function DetailedCard({
+export default function deprecatedDetailedCard({
     image,
     price,
     name,
