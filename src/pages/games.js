@@ -1,11 +1,18 @@
 import GameCard from "@/components/GameCard";
 import Navbar from "@/components/Navbar";
 import { useEffect, useState } from "react";
+import { motion, LayoutGroup, AnimateSharedLayout } from "framer-motion";
+
+const buttons = [
+    { label: "Dia", value: "day" },
+    { label: "Semana", value: "week" },
+    { label: "Mês", value: "month" },
+];
 
 export default function Games(props) {
     const [gamesScheduled, setGamesScheduled] = useState([]);
     const [fieldInfo, setFieldInfo] = useState([]);
-
+    const [selected, setSelected] = useState("day");
 
     const fetchData = async () => {
         const res = await fetch("/api/jogos");
@@ -14,7 +21,7 @@ export default function Games(props) {
         const fieldData = await fieldRes.json();
         setGamesScheduled(await data);
         setFieldInfo(await fieldData);
-        console.log(fieldData[1].img)
+        console.log(fieldData[1].img);
     };
 
     useEffect(() => {
@@ -22,11 +29,10 @@ export default function Games(props) {
             await fetchData();
         })();
     }, []);
-    
+
     const findCorrectField = (id) => {
         return fieldInfo.find((ele) => ele._id === id);
     };
-   
 
     const signToGame = async (uid, gid) => {
         const res = await fetch(`/api/jogos/${gid}`, {
@@ -42,32 +48,31 @@ export default function Games(props) {
 
     const sortByWeek = async (time) => {
         const res = await fetch(`/api/jogos/?date=${time}`);
-        const data = await res.json()
-        setGamesScheduled(await data)
+        const data = await res.json();
+        setGamesScheduled(await data);
     };
 
     return (
         <div className="bg-primaryDarkestBlue h-screen ">
             <div className="flex justify-center p-8">
                 <div
-                    className="bg-primaryDarkerBlue w-[290px] h-[42
-                    8px]  rounded-full flex justify-between items-center text-contrastOffWhite p-1.5"
+                    className="bg-primaryDarkerBlue w-[310px] h-[42
+                    8px] rounded-full flex justify-center items-center text-contrastOffWhite py-2"
                 >
-                    <button
-                        onClick={fetchData}
-                        className="rounded-full h-[34px] bg-primaryDarkestBlue w-[119px] cursor-pointer"
-                    >
-                        Hoje
-                    </button>
-                    <button
-                        onClick={() => sortByWeek('week')}
-                        className="rounded-full h-[34px]  w-[119px]"
-                    >
-                        Semana
-                    </button>
-                    <button className="rounded-full h-[34px] w-[119px]">
-                        Mês
-                    </button>
+           
+
+                    <motion.div className="flex  w-[290px] justify-center">
+                            {buttons.map((el, i) => (
+                                <MenuItem
+                                    text={el.label}
+                                    key={i}
+                                    selected={selected === el.value}
+                                    onClick={() => setSelected(el.value)}
+                                />
+                            ))}
+
+                    </motion.div>
+                   
                 </div>
             </div>
 
@@ -93,3 +98,15 @@ export default function Games(props) {
         </div>
     );
 }
+
+const MenuItem = ({ text, selected, onClick }) => (
+    <motion.div
+        className="rounded-full w-[108px] h-[40px] flex justify-center items-center"
+        layout
+        onClick={onClick}
+        animate={{ opacity: selected ? 1 : 0.3, backgroundColor: selected ? "#020E16" : "transparent" }}
+    >
+        {text}
+        {selected && <motion.div className="underline" layoutId="underline" />}
+    </motion.div>
+);

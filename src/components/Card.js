@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { data } from "autoprefixer";
 
 export default function Card({
     image,
@@ -10,23 +11,27 @@ export default function Card({
     workingHours,
     details,
     cardId,
-    moreOptions,
+    description,
+    handleData
 }) {
     const [open, setOpen] = useState(false);
+  
+    
+
 
     return (
         <>
             <motion.div
                 animate={{
-                    height: open ? "140vh" : "328px",
-                    translateY: open ? "-60px" : "s0px"
+                    height: open ? "130vh" : "338px",
+                    translateY: open ? "0px" : "0px",
                 }}
-                onClick={() => setOpen(!open)}
                 className="w-[368px] bg-primaryDarkestBlue rounded-lg border-primaryBlue border-solid border border-opacity-10 flex flex-col items-center pt-[10px] px-[10px] mb-5"
             >
                 {/* IMAGE */}
                 <div className="relative w-full rounded-lg h-[208px]">
                     <Image
+                        onClick={() => setOpen((prevState) => !prevState)}
                         priority
                         src={image} /* image */
                         width={364}
@@ -55,6 +60,10 @@ export default function Card({
                         <span className="text-contrastOffWhite text-sm block">
                             {location}
                         </span>
+                        <input
+                            type="date"
+                            onChange={(e) => handleData(e)}
+                        ></input>
                     </div>
                     <div className="flex items-center ">
                         <ul className="flex flex-wrap">
@@ -77,12 +86,25 @@ export default function Card({
                     animate={{
                         opacity: open ? "1" : "0",
                         transform: !open
-                            ? "translateY(100px)"
+                            ? "translateY(0px)"
                             : "translateY(0px)",
                     }}
-                    className="text-contrastOffWhite"
+                    className="text-contrastOffWhite relative"
                 >
-                    asihfasf
+                    <section className="text-contrastOffWhite py-5 px-3">
+                        <h5>Sobre</h5>
+
+                        <p>{description}</p>
+                    </section>
+
+                    <div className="flexjustify-center items-end pb-5 bg-gradient-to-t from-black from-5% to-gradientAlpha ">
+                        <button
+                            onClick={() => postGame(dataTosend)}
+                            className="rounded-3xl w-48 h-8 bg-primaryBlue text-contrastOffWhite "
+                        >
+                            Reserva
+                        </button>
+                    </div>
                 </motion.div>
             </motion.div>
         </>
