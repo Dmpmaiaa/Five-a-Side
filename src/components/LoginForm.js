@@ -17,7 +17,7 @@ export default function LoginForm(props) {
             localStorage.setItem("token", corpo.token);
         } else {
             // toast.error('NOPE!', {
-            //   position: "bottom-right",
+            //   position: "bottom-right", 
             //   autoClose: 5000,
             //   hideProgressBar: false,
             //   closeOnClick: true,
