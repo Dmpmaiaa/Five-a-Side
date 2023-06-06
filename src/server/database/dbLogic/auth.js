@@ -1,5 +1,6 @@
 const { ObjectId } = require("mongodb")
-const { getMongoCollection } = require("./db")
+const { getMongoCollection } = require("../db")
+
 
 
 const COLLECTION_NAME = "users"

@@ -1,5 +1,7 @@
-const { findUserAuthByEmail, createUserAuth, findUserAuth } = require("../data/auth")
-const { findUserSessionByToken, createUserSession } = require("../data/sessions")
+const { findUserAuthByEmail, createUserAuth, findUserAuth } = require("../database/dbLogic/auth")
+const { createUserSession, findUserSessionByToken } = require("../database/dbLogic/sessions")
+
+
 
 async function getUserByEmail(email) {
     const result = await findUserAuthByEmail(email)
