@@ -14,25 +14,23 @@ export default function Card({
   cardId,
   description,
   postGame,
+  handleInfo
 }) {
-  const [signedToGame, setSignedToGame] = useState(false);
   const [open, setOpen] = useState(false);
-  const [participants, setParticipants] = useState(0);
   const hostId = "6479ec3f1de2044d9892aaba";
 
-  const valuetext = (value) => {
-    setParticipants(value);
-  };
+
 
   return (
     <>
       <motion.div
         animate={{
-          height: open ? "" : "348px",
+          height: open ? "fit-content" : "fit-content",
+          
         }}
-        className="w-[368px] bg-primaryDarkerBlue rounded-lg border-primaryBlue border-solid border border-opacity-10 flex flex-col items-center pt-[10px] px-[10px] mt-4"
+        transition={{duration: 1}}
+        className="w-[368px] bg-primaryDarkerBlue rounded-lg border-primaryBlue border-solid border border-opacity-10 flex flex-col items-center py-[10px] px-[10px] mt-4"
       >
-      
         <div className="relative w-full rounded-lg h-[200px]">
           <Image
             onClick={() => setOpen((prevState) => !prevState)}
@@ -45,7 +43,7 @@ export default function Card({
           />
 
           <div
-            className={`absolute w-[70px] h-[20px] bg-primaryBlue bottom-2 left-3 rounded-md`}
+            className={`absolute w-[70px] h-[20px] bg-primaryBlue bottom-4 left-3 rounded-md`}
           >
             <p className="text-center text-sm text-contrastOffWhite">
               {price} €
@@ -53,7 +51,7 @@ export default function Card({
           </div>
         </div>
 
-        <div className="flex w-full  px-3 justify-between z-10 bg-primaryDarkerBlue">
+        <div className="flex w-full p-3 justify-between z-10 bg-primaryDarkerBlue">
           <div>
             <h2 className="text-contrastOffWhite font-semibold text-m">
               {name}
@@ -78,13 +76,18 @@ export default function Card({
 
         {open && (
           <motion.div
+            initial={{ opacity: 0 }}
             animate={{
-              opacity: open ? "1" : "0",
+              opacity: 1,
             }}
+            transition={{ duration: 0.4 }}
             className="text-contrastOffWhite relative"
           >
             <DetailedCard
-              valuetext={(e) => valuetext(e)}
+                 handleInfo={(date, id, participants, schedule, hostId) =>
+                  
+                  handleInfo(date, id, participants, schedule, hostId)}
+
               description={description}
               postGame={postGame}
             />
@@ -95,49 +98,3 @@ export default function Card({
   );
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* <div className="flex justify-center">
-  <Box sx={{ width: 300 }}>
-    <Slider
-      aria-label="Always visible"
-      defaultValue={1}
-      getAriaValueText={(e) => valuetext(e)}
-      step={1}
-      marks={options}
-      valueLabelDisplay="off"
-      min={1}
-      max={10}
-    />
-  </Box>
-</div>
-<section className="text-contrastOffWhite px-3 py-6">
-  <h5 className="font-bold pb-3">Sobre</h5>
-  <p>{description}</p>
-</section>
-<div className="flex justify-center items-end py-4">
-  <button
-    onClick={postGame}
-    className="bg-primaryBlue rounded-3xl w-48 h-8 text-contrastOffWhite"
-  >
-    Marcar Jogo
-  </button>
-</div> */}

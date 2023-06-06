@@ -4,7 +4,6 @@ import Button from "@/components/Button";
 import Card from "@/components/FieldCard/Card";
 import { useEffect, useState } from "react";
 
-
 export default function Home() {
     useEffect(() => {
         async function authorize() {
