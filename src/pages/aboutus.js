@@ -8,7 +8,8 @@ export default function AboutUs(){
 
             </div>
         <div className="pr-10 pb-10 pl-10">
-            <p className="text-contrastOffWhite text-xs text-justify">Bem-vindo ao Five a Side!
+            <p className="text-contrastOffWhite text-xs text-justify font-favoritC
+             ">Bem-vindo ao Five a Side!
 
 O Five a Side é um projeto criado por quatro estudantes do programa Bytes for Future: Diogo Maia, Júlio Macedo, Bárbara Oliveira e Solange Dias. Este projeto é o resultado final do nosso curso e representa o nosso esforço e dedicação para criar uma aplicação de futebol única.
 
