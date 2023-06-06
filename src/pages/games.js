@@ -50,7 +50,7 @@ export default function Games(props) {
                     className="bg-primaryDarkerBlue w-[290px] h-[42
                     8px]  rounded-full flex justify-between items-center text-contrastOffWhite p-1.5"
                 >
-                    <button className="rounded-full h-[34px] bg-primaryDarkestBlue w-[119px]">
+                    <button className=" rounded-full h-[34px]  w-[119px]  text-center block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white">
                         Hoje
                     </button>
                     <button className="rounded-full h-[34px]  w-[119px]">
@@ -59,8 +59,15 @@ export default function Games(props) {
                     <button className="rounded-full h-[34px] w-[119px]">
                         Dia
                     </button>
+                    
+
+                    
+                    
+
                 </div>
             </div>
+
+            
 
             <div className="flex flex-col items-center w-full">
                 {gamesScheduled?.map((ele) => (
