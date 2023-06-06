@@ -1,23 +1,34 @@
 import Card from "@/components/Card";
-import DetailedCard from "@/components/DetailedCard";
 import Navbar from "@/components/Navbar";
 import Topbar from "@/components/Topbar";
+import { DatePicker } from "@mui/x-date-pickers";
 import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+
 
 export default function Fields(props) {
     const [fields, setFields] = useState([]);
     const [dataToSend, setDataToSend] = useState({
         date: "",
+        idCampo: "",
         participants: "",
+        idHost: "",
+        idPlayers: [],
+        schedule: "",
     });
 
-    const handleData = (e) => {
+    const handleInfo = (e, cardId, participants, schedule, hostId) => {
         setDataToSend((prevState) => ({
             ...prevState,
             date: new Date(e.target.value),
+            idCampo: cardId,
+            participants,
+            schedule,
+            idHost: hostId,
         }));
     };
-
 
     const fetchData = async () => {
         const res = await fetch("api/campos/");
@@ -32,43 +43,45 @@ export default function Fields(props) {
         })();
     }, []);
 
-    // const getCard = async (id) => {
-    //     const res = await fetch(`api/campos/${id}`);
-    //     const data = await res.json();
-    //     setMoreInfo({ cardInfo: data.field, show: true });
-    //     console.log(data.field);
-    // };
+    const postGame = async (idCampo, participants, schedule, host) => {
+        setDataToSend((prevState) => ({
+            ...prevState,
+            idCampo,
+            participants,
+            host,
+            schedule,
+        }));
 
-    const postGame = async (gameData) => {
         const res = await fetch("/api/jogos/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(daodsDeUtikizador),
+            body: JSON.stringify(dataToSend),
         });
+
         const data = await res.json();
-        console.log(await data);
+        const status = res.status;
+        if (status === 201) {
+            toast.success("Jogo marcado!", {
+                position: "bottom-center",
+                autoClose: 1500,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
+        }
     };
 
     return (
         <div className="flex flex-col items-center">
-            {/* {moreInfo.show ? (
-                <DetailedCard
-                    fieldId={moreInfo.cardInfo._id}
-                    moreOptions={() => cleanState(true)}
-                    name={moreInfo.cardInfo.name}
-                    image={moreInfo.cardInfo.img}
-                    price={moreInfo.cardInfo.price}
-                    workingHours={moreInfo.cardInfo.hoursOpen}
-                    location={moreInfo.cardInfo.location}
-                    description={moreInfo.cardInfo.description}
-                    details={moreInfo.cardInfo.details}
-                    postGame={(dataTosend) => postGame(dataTosend)}
-                />
-            ) : ( */}
             <>
                 <Topbar />
+
+
                 <ul>
                     {fields?.map((ele) => (
                         <li key={ele._id}>
@@ -81,11 +94,27 @@ export default function Fields(props) {
                                 location={ele.location}
                                 details={ele.details}
                                 description={ele.description}
-                                handleData={(e) => handleData(e)}
+                                handleData={(e, id, part, sche, host) =>
+                                    handleInfo(e, id, part, sche, host)
+                                }
+                                postGame={postGame}
                             />
                         </li>
                     ))}
                 </ul>
+                <ToastContainer
+                    position="bottom-center"
+                    autoClose={4000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="dark"
+                />
+
                 <Navbar />
             </>
         </div>
