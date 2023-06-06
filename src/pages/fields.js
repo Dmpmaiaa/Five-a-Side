@@ -4,8 +4,7 @@ import Topbar from "@/components/Topbar";
 
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+
 
 
 export default function Fields(props) {
@@ -22,7 +21,7 @@ export default function Fields(props) {
     const handleInfo = (e, cardId, participants, schedule, hostId) => {
         setDataToSend((prevState) => ({
             ...prevState,
-            date: new Date(e.target.value),
+            date: "",
             idCampo: cardId,
             participants,
             schedule,
@@ -36,12 +35,17 @@ export default function Fields(props) {
         return await data;
     };
 
+
+/*     GETS DATA FROM FIELDS */
+
     useEffect(() => {
         (async () => {
             const fields = await fetchData();
             setFields(fields);
         })();
     }, []);
+
+
 
     const postGame = async (idCampo, participants, schedule, host) => {
         setDataToSend((prevState) => ({
@@ -94,8 +98,8 @@ export default function Fields(props) {
                                 location={ele.location}
                                 details={ele.details}
                                 description={ele.description}
-                                handleData={(e, id, part, sche, host) =>
-                                    handleInfo(e, id, part, sche, host)
+                                handleInfo={(date, id, participants, schedule, hostId) =>
+                                    handleInfo(date, id, participants, schedule, hostId)
                                 }
                                 postGame={postGame}
                             />
