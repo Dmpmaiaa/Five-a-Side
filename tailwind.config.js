@@ -27,7 +27,16 @@ module.exports = {
         75: '75%',
       },
       fontFamily : {
-        "favorite": ["Rift"]
+        "rift": ["Rift"],
+        "riftItalic":["RiftItalic"],
+        "riftRegular":["RiftRegular"],
+        "favoritC":["FavoritC"],
+        "favoritHeavy":["FavoriteHeavyC"],
+        "robotoThin":["Roboto-Thin"],
+        "robotoThinItalic":["Roboto-ThinItalic"],
+        "robotoRegular":["Roboto-Regular"],
+        "robotoBold":["Roboto-Bold"]
+        
       }
     },
   },
