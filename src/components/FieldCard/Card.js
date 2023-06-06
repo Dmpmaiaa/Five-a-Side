@@ -20,17 +20,13 @@ export default function Card({
   const [participants, setParticipants] = useState(0);
   const hostId = "6479ec3f1de2044d9892aaba";
 
-  const valuetext = (value) => {
-    setParticipants(value);
-  };
-
   return (
     <>
       <motion.div
         animate={{
-          height: open ? "" : "348px",
+          height: open ? "fit-content" : "fit-content",
         }}
-        className="w-[368px] bg-primaryDarkerBlue rounded-lg border-primaryBlue border-solid border border-opacity-10 flex flex-col items-center pt-[10px] px-[10px] mt-4"
+        className="w-[368px] bg-primaryDarkerBlue rounded-lg border-primaryBlue border-solid border border-opacity-10 flex flex-col items-center py-[10px] px-[10px] mt-4"
       >
       
         <div className="relative w-full rounded-lg h-[200px]">
@@ -45,7 +41,7 @@ export default function Card({
           />
 
           <div
-            className={`absolute w-[70px] h-[20px] bg-primaryBlue bottom-2 left-3 rounded-md`}
+            className={`absolute w-[70px] h-[20px] bg-primaryBlue bottom-4 left-3 rounded-md`}
           >
             <p className="text-center text-sm text-contrastOffWhite">
               {price} €
@@ -53,7 +49,7 @@ export default function Card({
           </div>
         </div>
 
-        <div className="flex w-full  px-3 justify-between z-10 bg-primaryDarkerBlue">
+        <div className="flex w-full  p-3 justify-between z-10 bg-primaryDarkerBlue">
           <div>
             <h2 className="text-contrastOffWhite font-semibold text-m">
               {name}

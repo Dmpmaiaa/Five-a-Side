@@ -1,6 +1,9 @@
 import { Box, Slider } from "@mui/material";
+import { DatePicker } from "@mui/x-date-pickers";
+import Datepicker from "./Datepicker";
+import { useState } from "react";
 
-export default function DetailedCard({valuetext, description, postGame}) {
+export default function DetailedCard({description, postGame}) {
   const options = [
     { value: "1", label: "1" },
     { value: "2", label: "2" },
@@ -14,8 +17,18 @@ export default function DetailedCard({valuetext, description, postGame}) {
     { value: "10", label: "10" },
   ];
 
+  const [date, setDate] = useState()
+  const [participants, setParticipants] = useState(second)
+  const valuetext = (value) => {
+    setParticipants(value);
+  };
+
   return (
     <>
+    <div>
+      <Datepicker />
+      
+    </div>
       <div className="flex justify-center">
         <Box sx={{ width: 300 }}>
           <Slider

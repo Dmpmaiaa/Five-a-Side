@@ -322,7 +322,14 @@
   "resolved" "https://registry.npmjs.org/@mui/core-downloads-tracker/-/core-downloads-tracker-5.13.4.tgz"
   "version" "5.13.4"
 
-"@mui/material@^5.13.4", "@mui/material@^5.8.6":
+"@mui/icons-material@^5.11.16":
+  "integrity" "sha512-oKkx9z9Kwg40NtcIajF9uOXhxiyTZrrm9nmIJ4UjkU2IdHpd4QVLbCc/5hZN/y0C6qzi2Zlxyr9TGddQx2vx2A=="
+  "resolved" "https://registry.npmjs.org/@mui/icons-material/-/icons-material-5.11.16.tgz"
+  "version" "5.11.16"
+  dependencies:
+    "@babel/runtime" "^7.21.0"
+
+"@mui/material@^5.0.0", "@mui/material@^5.13.4", "@mui/material@^5.8.6":
   "integrity" "sha512-Yq+4f1KLPa/Szd3xqra2hbOAf2Usl8GbubncArM6LIp40mBLtXIdPE29MNtHsbtuzz4g+eidrETgoi3wdbEYfQ=="
   "resolved" "https://registry.npmjs.org/@mui/material/-/material-5.13.4.tgz"
   "version" "5.13.4"
@@ -732,6 +739,13 @@
   "integrity" "sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ=="
   "resolved" "https://registry.npmjs.org/csstype/-/csstype-3.1.2.tgz"
   "version" "3.1.2"
+
+"date-fns@^2.25.0", "date-fns@^2.30.0":
+  "integrity" "sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw=="
+  "resolved" "https://registry.npmjs.org/date-fns/-/date-fns-2.30.0.tgz"
+  "version" "2.30.0"
+  dependencies:
+    "@babel/runtime" "^7.21.0"
 
 "dayjs@^1.10.7", "dayjs@^1.11.8":
   "integrity" "sha512-LcgxzFoWMEPO7ggRv1Y2N31hUf2R0Vj7fuy/m+Bg1K8rr+KAs1AEy4y9jd5DXe8pbHgX+srkHNS7TH6Q6ZhYeQ=="

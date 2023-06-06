@@ -1,16 +1,27 @@
-import {DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers";
+import { Input } from "@mui/material";
+import { makeStyles } from "@mui/styled-engine";
+import {
+  DateField,
+  DateTimePicker,
+  LocalizationProvider
+} from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { pt } from "date-fns/locale";
+
 
 export default function Datepicker(props) {
-  <LocalizationProvider dateAdapter={AdapterDayjs}>
-    <DateTimePicker
-      label="Horário"
-      value={"value"}
-      closeOnSelect={true}
-      className="bg-primaryDarkerBlue"
-      onChange={(newValue) =>
-        setDates((preValue) => ({ ...preValue, newValue }))
-      }
-      views={["day", "month", "hours"]}
-    />
-  </LocalizationProvider>;
+  return (
+    <div className="flex justify-center m-2">
+      <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={pt}>
+        <DateTimePicker
+          value={"value"}
+          onChange={(newValue) =>
+            setDates((preValue) => ({ ...preValue, newValue }))
+          }
+          views={["day", "month", "hours"]}
+        
+        />
+      </LocalizationProvider>
+    </div>
+  );
 }
