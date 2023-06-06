@@ -1,4 +1,4 @@
-import GameCard from "@/components/GameCard";
+import GameCard from "@/components/FieldCard/GameCard";
 import Navbar from "@/components/Navbar";
 import { useEffect, useState } from "react";
 import { motion, LayoutGroup, AnimateSharedLayout } from "framer-motion";
