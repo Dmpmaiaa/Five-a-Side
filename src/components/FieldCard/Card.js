@@ -28,7 +28,7 @@ export default function Card({
           height: open ? "fit-content" : "fit-content",
           
         }}
-        transition={{duration: 1}}
+
         className="w-[368px] bg-primaryDarkerBlue rounded-lg border-primaryBlue border-solid border border-opacity-10 flex flex-col items-center px-[10px] mt-4"
       >
         <div className="relative w-full rounded-lg h-[200px]">

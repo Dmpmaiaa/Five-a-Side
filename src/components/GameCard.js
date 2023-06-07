@@ -4,46 +4,46 @@ import moment from "moment/moment";
 import { MomentFormatSpecification } from "moment";
 
 export default function GameCard({
-  gameId,
-  location,
-  numPlayer,
-  schedule,
-  date,
-  signToGame,
-  fieldId,
+    gameId,
+    location,
+    numPlayer,
+    schedule,
+    date,
+    signToGame,
+    fieldId,
 }) {
-  const [fieldInfo, setFieldInfo] = useState([]);
+    const [fieldInfo, setFieldInfo] = useState([]);
 
-  const findCorrectField = (id) => {
-    return fieldInfo.find((ele) => ele._id == id);
-  };
+    const findCorrectField = (id) => {
+        return fieldInfo.find((ele) => ele._id == id);
+    };
 
-  const fetchData = async () => {
-    const fieldRes = await fetch("/api/campos");
-    const fieldData = await fieldRes.json();
-    setFieldInfo(await fieldData);
-  };
+    const fetchData = async () => {
+        const fieldRes = await fetch("/api/campos");
+        const fieldData = await fieldRes.json();
+        setFieldInfo(await fieldData);
+    };
 
-  useEffect(() => {
-    (async () => {
-      await fetchData();
-    })();
-  }, []);
+    useEffect(() => {
+        (async () => {
+            await fetchData();
+        })();
+    }, []);
 
-  return (
-    <div className="text-white w-screen flex items-center justify-around">
-      <div className="flex flex-col">
-        {findCorrectField(fieldId)?.img && (
-          <Image
-            priority
-            src={findCorrectField(fieldId).img}
-            width={100}
-            height={100}
-            alt="Fotografia do campo"
-            className="rounded-[10px]"
-          />
-        )}
-      </div>
+    return (
+        <div className="text-white w-screen flex items-center justify-around border border-white">
+            <div className="flex flex-col">
+                {findCorrectField(fieldId)?.img && (
+                    <Image
+                        priority
+                        src={findCorrectField(fieldId)?.img}
+                        width={100}
+                        height={100}
+                        alt="Fotografia do campo"
+                        className="rounded-[10px]"
+                    />
+                )}
+            </div>
 
       <div className="flex flex-col pt-3 pe-3 pb-3 leading-9 text-contrastOffWhite w-2/3 ">
         <p className="text-m font-robotoBold">{findCorrectField(fieldId)?.name}</p>
