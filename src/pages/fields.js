@@ -5,27 +5,21 @@ import Topbar from "@/components/Topbar";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
-
-
 export default function Fields(props) {
     const [fields, setFields] = useState([]);
     const [dataToSend, setDataToSend] = useState({
         date: "",
-        idCampo: "",
+        hours: "",
+        locationId: "",
         participants: "",
-        idHost: "",
-        idPlayers: [],
-        schedule: "",
+        hostId: "",
+        playersId: [],
     });
 
-    const handleInfo = (e, cardId, participants, schedule, hostId) => {
+    const handleStateChange = (field, value) => {
         setDataToSend((prevState) => ({
             ...prevState,
-            date: "",
-            idCampo: cardId,
-            participants,
-            schedule,
-            idHost: hostId,
+            [field]: value,
         }));
     };
 
@@ -35,8 +29,7 @@ export default function Fields(props) {
         return await data;
     };
 
-
-/*     GETS DATA FROM FIELDS */
+    /*     GETS DATA FROM FIELDS */
 
     useEffect(() => {
         (async () => {
@@ -45,17 +38,9 @@ export default function Fields(props) {
         })();
     }, []);
 
+    const postGame = async () => {
 
-
-    const postGame = async (idCampo, participants, schedule, host) => {
-        setDataToSend((prevState) => ({
-            ...prevState,
-            idCampo,
-            participants,
-            host,
-            schedule,
-        }));
-
+        console.log(dataToSend);
         const res = await fetch("/api/jogos/", {
             method: "POST",
             headers: {
@@ -85,8 +70,7 @@ export default function Fields(props) {
             <>
                 <Topbar />
 
-
-                <ul>
+                <ul className="mb-24 z-30">
                     {fields?.map((ele) => (
                         <li key={ele._id}>
                             <Card
@@ -98,8 +82,8 @@ export default function Fields(props) {
                                 location={ele.location}
                                 details={ele.details}
                                 description={ele.description}
-                                handleInfo={(date, id, participants, schedule, hostId) =>
-                                    handleInfo(date, id, participants, schedule, hostId)
+                                handleInfo={(field, value) =>
+                                    handleStateChange(field, value)
                                 }
                                 postGame={postGame}
                             />
