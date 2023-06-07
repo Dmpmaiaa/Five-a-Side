@@ -47,7 +47,7 @@ export default function Games(props) {
             <div className="flex justify-center p-8">
                 <div
                     className="bg-primaryDarkerBlue w-[310px] h-[42
-                    8px] rounded-full flex justify-center items-center text-contrastOffWhite py-2"
+                    8px] rounded-full flex justify-center items-center font-robotoRegular text-contrastOffWhite py-2"
                 >
                     <motion.div className="flex  w-[290px] justify-center">
                         {buttons.map((el, i) => (

@@ -26,24 +26,28 @@ export default function Card({
       handleInfo("locationId", cardId)
     }, [])
 
-    return (
-        <>
-            <motion.div
-                animate={{
-                    height: open ? "fit-content" : "fit-content",
-                }}
-                className="w-[368px] bg-primaryDarkerBlue rounded-lg border-primaryBlue border-solid border border-opacity-10 flex flex-col items-center px-[10px] mt-4"
-            >
-                <div className="relative w-full rounded-lg h-[200px]">
-                    <Image
-                        onClick={() => setOpen((prevState) => !prevState)}
-                        priority
-                        src={image} /* image */
-                        width={364}
-                        height={210}
-                        alt="Fotografia do Ringue da Matriz"
-                        className="rounded-lg block"
-                    />
+   return (
+    <>
+      <motion.div
+        animate={{
+          height: open ? "fit-content" : "fit-content",
+          
+        }}
+
+        className="w-[368px] bg-primaryDarkerBlue rounded-lg border-primaryBlue border-solid border border-opacity-10 flex flex-col items-center px-[10px] mt-4"
+      >
+        <div className="relative w-full mt-3 rounded-lg h-[200px]">
+          <Image
+            onClick={() => setOpen((prevState) => !prevState)}
+            priority
+            src={image} /* image */
+            width={364}
+            height={210}
+            alt="Fotografia do Ringue da Matriz"
+            className="rounded-lg block"
+          />
+
+
 
                     <div
                         className={`absolute w-[70px] h-[20px] bg-primaryBlue bottom-4 left-3 rounded-md`}

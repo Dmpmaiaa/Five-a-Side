@@ -53,7 +53,9 @@ export default function Profile(props) {
                 </div>
             </div>
 
-            <Navbar />
-        </div>
-    );
+
+      <Navbar page={"profile"}/>
+    </div>
+  );
+
 }
