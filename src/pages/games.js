@@ -14,6 +14,10 @@ export default function Games(props) {
     const [fieldInfo, setFieldInfo] = useState([]);
     const [selected, setSelected] = useState("day");
 
+
+
+    
+
     const fetchData = async () => {
         const res = await fetch("/api/jogos");
         const data = await res.json();
@@ -116,3 +120,6 @@ const MenuItem = ({ text, selected, onClick }) => (
         {selected && <motion.div className="underline" layoutId="underline" />}
     </motion.div>
 );
+
+
+  

@@ -1,3 +1,5 @@
+import {checkDataFromNewGame} from "@/server/middleware/jogos";
+
 import {
   getGames,
   getGamesByDate,
@@ -36,6 +38,9 @@ export default async function handler(req, res) {
     }
 
     if (req.method === "POST") {
+      checkDataFromNewGame(req, res)
+      // verificaCoisas(req,res)
+      // verificaData (req,res)
       const data = req.body;
       console.log(data);
       const dataForGame = await newGame(data);
