@@ -50,7 +50,7 @@ export default function DetailedCard({ description, postGame, handleInfo }) {
         <Datepicker updateDate={(newValue) => updateDate(newValue)} />
       </div>
 
-      <section className="text-contrastOffWhite font-robotoRegular px-3 py-6">
+      <section className="text-contrastOffWhite font-robotoThin px-3 py-6">
         {/* <h5 className="font-bold pb-3">Sobre</h5>  ACHO QUE NÃO HA NECESSIDADE DE DIZER "SOBRE". TIP DA MARIA SENSUAL */}
         <p>{description}</p>
       </section>
