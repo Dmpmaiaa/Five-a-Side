@@ -10,6 +10,22 @@
   }
 
 @font-face {
+  font-family: "Roboto-Thin";
+  src: url("../assets/Roboto-Thin.ttf");
+}
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("../assets/Roboto-Regular.ttf");
+}
+@font-face {
+  font-family: "Roboto-ThinItalic";
+  src: url("../assets/Roboto-ThinItalic.ttf");
+}
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url("../assets/Roboto-Bold.ttf");
+}
+@font-face {
     font-family: "Rift";
     src: url("../assets/Fort\ Foundry\ -\ Rift\ Bold\ Italic.otf");
   }
