@@ -49,8 +49,9 @@ export default function deprecatedDetailedCard({
                     </div>
                 </div>
                 <div className="flex w-full p-2 px-3 rounded-b-lg justify-between z-10 bg-primaryDarkestBlue border border-primaryDarkestBlue">
-                    <div>
-                        <h2 className="text-contrastOffWhite font-semibold text-m">
+                    <div id="left" className="w-2/3">
+                        <h2 className="text-contrastOffWhite 
+                         text-m font-robotoBold">
                             {name}{" "}
                             <span className="text-contrastOffWhite text-xs font-thin">
                                 {details.type}
@@ -65,7 +66,7 @@ export default function deprecatedDetailedCard({
                             {location}
                         </span>
                     </div>
-                    <div className="flex items-center ">
+                    <div id="right" className="flex items-center w-1/3 ">
                         <ul className="flex flex-wrap">
                             <li className="text-contrastOffWhite text-right text-xs opacity-50 w-1/2">
                                 {details.ball && "Bola"}

@@ -711,39 +711,7 @@
   "version" "7.1.0"
   dependencies:
     "@types/parse-json" "^4.0.0"
-    "import-fresh" "^3.2.1"
-    "parse-json" "^5.0.0"
-    "path-type" "^4.0.0"
-    "yaml" "^1.10.0"
 
-"css-color-keywords@^1.0.0":
-  "integrity" "sha512-FyyrDHZKEjXDpNJYvVsV960FiqQyXc/LlYmsxl2BcdMb2WPx0OGRVgTg55rPSyLSNMqP52R9r8geSp7apN3Ofg=="
-  "resolved" "https://registry.npmjs.org/css-color-keywords/-/css-color-keywords-1.0.0.tgz"
-  "version" "1.0.0"
-
-"css-to-react-native@^3.0.0":
-  "integrity" "sha512-e8RKaLXMOFii+02mOlqwjbD00KSEKqblnpO9e++1aXS1fPQOpS1YoqdVHBqPjHNoxeF2mimzVqawm2KCbEdtHQ=="
-  "resolved" "https://registry.npmjs.org/css-to-react-native/-/css-to-react-native-3.2.0.tgz"
-  "version" "3.2.0"
-  dependencies:
-    "camelize" "^1.0.0"
-    "css-color-keywords" "^1.0.0"
-    "postcss-value-parser" "^4.0.2"
-
-"cssesc@^3.0.0":
-  "integrity" "sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg=="
-  "resolved" "https://registry.npmjs.org/cssesc/-/cssesc-3.0.0.tgz"
-  "version" "3.0.0"
-
-"csstype@^3.0.2", "csstype@^3.1.2":
-  "integrity" "sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ=="
-  "resolved" "https://registry.npmjs.org/csstype/-/csstype-3.1.2.tgz"
-  "version" "3.1.2"
-
-"date-fns@^2.25.0", "date-fns@^2.30.0":
-  "integrity" "sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw=="
-  "resolved" "https://registry.npmjs.org/date-fns/-/date-fns-2.30.0.tgz"
-  "version" "2.30.0"
   dependencies:
     "@babel/runtime" "^7.21.0"
 
