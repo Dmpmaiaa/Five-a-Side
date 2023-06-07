@@ -38,6 +38,7 @@ export async function findGameByWeek() {
             $lte: endDate,
         },
     };
+    console.log(startDate, endDate)
 
     const result = await collection
         .find({
@@ -47,7 +48,7 @@ export async function findGameByWeek() {
             },
         })
         .toArray();
-    return result;
+    console.log(result)
 }
 
 export async function findGameByMonth() {
@@ -89,8 +90,8 @@ export async function findGamesByLocation(location) {
 // ********* --- INSERT ITEMS --- *********
 
 export async function createNewGame(data) {
+    
  
-
     const collection = await getMongoCollection(COLLECTION_NAME);
     const result = collection.insertOne(data);
     return result;
