@@ -119,7 +119,7 @@ export default function Fields(props) {
                     theme="dark"
                 />
 
-                <Navbar />
+                <Navbar page={"fields"} />
             </>
         </div>
     );

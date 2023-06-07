@@ -31,7 +31,7 @@ export default function Card({
 
         className="w-[368px] bg-primaryDarkerBlue rounded-lg border-primaryBlue border-solid border border-opacity-10 flex flex-col items-center px-[10px] mt-4"
       >
-        <div className="relative w-full rounded-lg h-[200px]">
+        <div className="relative w-full mt-3 rounded-lg h-[200px]">
           <Image
             onClick={() => setOpen((prevState) => !prevState)}
             priority
