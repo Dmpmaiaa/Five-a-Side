@@ -1,4 +1,4 @@
-import {checkDataFromNewGame} from "@/server/middleware/jogos";
+import { checkDataFromNewGame } from "@/server/middleware/jogos";
 
 import {
     getGames,
@@ -11,7 +11,6 @@ export default async function handler(req, res) {
     try {
         const location = req.query.location;
         const date = req.query.date;
-
 
         if (req.method === "GET") {
             if (location) {
@@ -29,18 +28,16 @@ export default async function handler(req, res) {
                 }
                 return res.status(404).json(/* MENSAGEM DE ERRO */);
             }
-
         }
 
-
-    if (req.method === "POST") {
-      checkDataFromNewGame(req, res)
-      // verificaCoisas(req,res)
-      // verificaData (req,res)
-      const data = req.body;
-      console.log(data);
-      const dataForGame = await newGame(data);
-      return res.status(201).json({ dataForGame });
-
+        if (req.method === "POST") {
+            //checkDataFromNewGame(req, res);
+            const data = req.body;
+            console.log(data);
+            const dataForGame = await newGame(data);
+            return res.status(201).json({ dataForGame });
+        }
+    } catch (err) {
+        console.log(err);
     }
 }

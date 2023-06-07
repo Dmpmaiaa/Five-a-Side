@@ -16,6 +16,7 @@ export default function Fields(props) {
         playersId: [],
     });
 
+
     const handleStateChange = (field, value) => {
         setDataToSend((prevState) => ({
             ...prevState,
