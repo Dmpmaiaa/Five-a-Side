@@ -1,6 +1,9 @@
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
+import { Router, useRouter } from "next/router";
 export default function Termos() {
+
+  const router = useRouter()
   return (
     <div>
       <div className="flex items-center p-10 justify-center">
@@ -96,7 +99,7 @@ export default function Termos() {
         </ol>
       </div>
       <div className="pb-24 flex items-center justify-center">
-        <button className="h-8 w-20 rounded-full bg-darkBlueBtn text-contrastOffWhite font-robotoRegular">
+        <button className="h-8 w-20 rounded-full bg-darkBlueBtn text-contrastOffWhite font-robotoRegular" onClick={() => router.push('/profile')}>
           Voltar
         </button>
       </div>
@@ -105,4 +108,5 @@ export default function Termos() {
       </div>
     </div>
   );
+
 }

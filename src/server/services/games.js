@@ -9,11 +9,6 @@ import {
     findGamesToday,
 } from "../database/dbLogic/games";
 
-/* export async function getGamesToday() {
-    const games = await findGamesToday();
-    return games;
-}
- */
 export async function getGameById(id) {
     const game = await findGameById(id);
     return game;
@@ -40,8 +35,14 @@ export async function getGamesByDate(date) {
 }
 
 export async function newGame(data) {
+    const newData = {
+        date: new Date(data.date),
+        
+
+    }
     const gameCreation = await createNewGame(data);
-    return gameCreation;
+    console.log(data.date)
+
 }
 
 export async function newPlayer(uid, gameId) {

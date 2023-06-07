@@ -30,13 +30,6 @@ export default async function handler(req, res) {
                 return res.status(404).json(/* MENSAGEM DE ERRO */);
             }
 
-            // if (day) {
-            //     const games = await getGames();
-            //     if (games) {
-            //         return res.status(200).json(games);
-            //     }
-            //     return res.status(404).json(/* MENSAGEM DE ERRO */);
-            // }
         }
 
 

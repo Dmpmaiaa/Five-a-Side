@@ -89,15 +89,7 @@ export async function findGamesByLocation(location) {
 // ********* --- INSERT ITEMS --- *********
 
 export async function createNewGame(data) {
-    // {
-    //   date: string
-    //   idCampo: string
-    //   participants: number
-    //   idHost: new ObjectId
-    //   idPlayers [....]
-    //   schedule " "
-    //   return
-    // }
+ 
 
     const collection = await getMongoCollection(COLLECTION_NAME);
     const result = collection.insertOne(data);
