@@ -28,8 +28,8 @@ export default function Card({
           height: open ? "fit-content" : "fit-content",
           
         }}
-        transition={{duration: 1}}
-        className="w-[368px] bg-primaryDarkerBlue rounded-lg border-primaryBlue border-solid border border-opacity-10 flex flex-col items-center py-[10px] px-[10px] mt-4"
+
+        className="w-[368px] bg-primaryDarkerBlue rounded-lg border-primaryBlue border-solid border border-opacity-10 flex flex-col items-center px-[10px] mt-4"
       >
         <div className="relative w-full rounded-lg h-[200px]">
           <Image
@@ -45,21 +45,21 @@ export default function Card({
           <div
             className={`absolute w-[70px] h-[20px] bg-primaryBlue bottom-4 left-3 rounded-md`}
           >
-            <p className="text-center text-sm text-contrastOffWhite">
+            <p className="text-center text-sm text-contrastOffWhite font-robotoRegular">
               {price} €
             </p>
           </div>
         </div>
 
         <div className="flex w-full p-3 justify-between z-10 bg-primaryDarkerBlue">
-          <div>
-            <h2 className="text-contrastOffWhite font-semibold text-m">
+          <div className="w-2/3">
+            <h2 className="text-contrastOffWhite  text-m font-robotoBold">
               {name}
             </h2>
 
-            <span className="text-primaryBlue text-xs">{workingHours}</span>
+            <span className="text-primaryBlue font-robotoRegular text-xs">{workingHours}</span>
 
-            <span className="text-contrastOffWhite text-sm block">
+            <span className="text-contrastOffWhite font-robotoThin text-sm block ">
               {location}
             </span>
           </div>

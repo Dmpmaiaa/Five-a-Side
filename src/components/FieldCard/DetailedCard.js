@@ -2,7 +2,7 @@ import { Box, Slider } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers";
 import Datepicker from "./Datepicker";
 import { useState } from "react";
-import { setDate } from "date-fns";
+
 
 {/* PROPS A VIAJAREM ATÉ NARNIA */ }
 
@@ -32,9 +32,7 @@ export default function DetailedCard({ description, postGame, handleInfo }) {
 
   return (
     <>
-      <div>
-        <Datepicker updateDate={(newValue) => updateDate(newValue)} />
-      </div>
+     
       <div className="flex justify-center">
         <Box sx={{ width: 300 }}>
           <Slider
@@ -48,17 +46,19 @@ export default function DetailedCard({ description, postGame, handleInfo }) {
             max={10}
           />
         </Box>
+      </div> <div>
+        <Datepicker updateDate={(newValue) => updateDate(newValue)} />
       </div>
 
-      <section className="text-contrastOffWhite px-3 py-6">
-        <h5 className="font-bold pb-3">Sobre</h5>
+      <section className="text-contrastOffWhite font-robotoThin px-3 py-6">
+        {/* <h5 className="font-bold pb-3">Sobre</h5>  ACHO QUE NÃO HA NECESSIDADE DE DIZER "SOBRE". TIP DA MARIA SENSUAL */}
         <p>{description}</p>
       </section>
 
       <div className="flex justify-center items-end py-4">
         <button
           onClick={postGame}
-          className="bg-primaryBlue rounded-3xl w-48 h-8 text-contrastOffWhite"
+          className="bg-primaryBlue rounded-3xl w-48 h-8 text-contrastOffWhite  font-robotoRegular"
         >
           Marcar Jogo
         </button>
