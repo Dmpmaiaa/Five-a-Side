@@ -45,13 +45,13 @@ export default function GameCard({
         )}
       </div>
 
-      <div className="flex flex-col pt-3 pe-3 pb-3 leading-9">
-        <p className="text-m">{findCorrectField(fieldId)?.name}</p>
+      <div className="flex flex-col pt-3 pe-3 pb-3 leading-9 text-contrastOffWhite w-2/3 ">
+        <p className="text-m font-robotoBold">{findCorrectField(fieldId)?.name}</p>
 
-        <p className="text-xs">{location}</p>
+        <p className="text-xs font-robotoRegular">{location}</p>
         <div className="flex gap-2 text-xs">
-          <span>{moment(date).format("DD-MM-YYYY")}</span>
-          <span>{schedule}</span>
+          <span className="font-robotoRegular">{moment(date).format("DD-MM-YYYY")}</span>
+          <span className="font-robotoRegular ">{schedule}</span>
         </div>
       </div>
       {/* <button className="bg-white rounded" onClick={() => console.log()}>OKADOPAS</button>
@@ -67,7 +67,11 @@ export default function GameCard({
         >
           <span>{numPlayer}</span>
         </div>
+        <div className="justify-start">
+        <button className="bg-primaryBlue text-contrastOffWhite rounded-lg w-[85px] h-[">what</button>
       </div>
+      </div>
+      
     </div>
   );
 }
