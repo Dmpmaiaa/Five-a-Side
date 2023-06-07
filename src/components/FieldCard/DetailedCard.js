@@ -50,15 +50,15 @@ export default function DetailedCard({ description, postGame, handleInfo }) {
         <Datepicker updateDate={(newValue) => updateDate(newValue)} />
       </div>
 
-      <section className="text-contrastOffWhite px-3 py-6">
-        <h5 className="font-bold pb-3">Sobre</h5>
+      <section className="text-contrastOffWhite font-robotoRegular px-3 py-6">
+        {/* <h5 className="font-bold pb-3">Sobre</h5>  ACHO QUE NÃO HA NECESSIDADE DE DIZER "SOBRE". TIP DA MARIA SENSUAL */}
         <p>{description}</p>
       </section>
 
       <div className="flex justify-center items-end py-4">
         <button
           onClick={postGame}
-          className="bg-primaryBlue rounded-3xl w-48 h-8 text-contrastOffWhite"
+          className="bg-primaryBlue rounded-3xl w-48 h-8 text-contrastOffWhite  font-robotoRegular"
         >
           Marcar Jogo
         </button>
