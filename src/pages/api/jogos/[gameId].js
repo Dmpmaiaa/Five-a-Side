@@ -2,11 +2,11 @@ import { getGameById, getGames, newPlayer } from "@/server/services/games";
 
 export default async function handler(req, res) {
     try {
-        const { gameId } = req.query;
+       /*  const { gameId } = req.query;
         if (req.method === "GET") {
             const games = await getGameById(gameId);
             return res.status(200).json(games);
-        }
+        } */
 
         if (req.method === "PATCH") {
             const data = req.body;
