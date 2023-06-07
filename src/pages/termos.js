@@ -7,10 +7,10 @@ export default function Termos() {
         <Image width={130} height={130} src="/../public/images/logotemp.png" />
       </div>
       <div className="pr-10 pb-10 pl-10">
-        <p className="text-contrastOffWhite text-sm  pb-10 text-center font-rift">
+        <p className="text-contrastOffWhite text-sm  pb-10 text-center font-robotoRegular">
         TERMOS E CONDIÇÕES:
         </p>
-        <p className="text-contrastOffWhite text-xs text-justify font-riftRegular">
+        <p className="text-contrastOffWhite text-xs text-justify font-robotoRegular">
 1. Respeito: Todos os utilizadores devem tratar-se com respeito e cortesia. Não será tolerado qualquer tipo de comportamento abusivo, discriminatório ou ofensivo.<br/>
 
 2.  Autenticidade:o momento do registo, os utilizadores devem fornecer informações verdadeiras e precisas, e atualizá-las periodicamente. <br/>
@@ -40,7 +40,7 @@ export default function Termos() {
         </p>
       </div>
       <div className="pb-24 flex items-center justify-center">
-        <button className="h-8 w-20 rounded-full bg-darkBlueBtn text-contrastOffWhite">
+        <button className="h-8 w-20 rounded-full bg-darkBlueBtn text-contrastOffWhite font-robotoRegular">
           Voltar
         </button>
       </div>
