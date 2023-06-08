@@ -9,11 +9,8 @@ export function checkDataFromNewGame(req, res) {
         participants === "" ||
         hostId === ""
     ) {
-        return res.status(400).json({ msg: "invalid_input" });
+        return true
     }
 }
 
 
-export function checkAvailability(req, res){
-    const {date, hours}}
-}

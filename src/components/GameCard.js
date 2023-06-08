@@ -28,13 +28,14 @@ export default function GameCard({
     useEffect(() => {
         (async () => {
             await fetchData();
+            console.log(gameId);
         })();
     }, []);
-    console.log(participants);
+   
 
     return (
-        <div className="text-white w-full flex items-center justify-around rounded-[10px] bg-red-400">
-            <div className="flex flex-col mx-1 w-[89px] h-[89px]">
+        <div className="text-white flex items-center justify-around rounded-[10px] bg-red-400">
+            <div className="flex flex-col h-[89px]">
                 <Image
                     priority
                     src={"/../public/images/sintetico3.jpg"}
@@ -45,7 +46,7 @@ export default function GameCard({
                 />
             </div>
 
-            <div className="flex flex-col pt-5 pb-5 pl-2  text-contrastOffWhite w-1/3 ">
+            <div className="flex flex-col pt-5 pb-5 text-contrastOffWhite w-1/3 ">
                 <p className="text-sm pb-3 font-robotoBold">
                     {findCorrectField(fieldId)?.name}
                 </p>
@@ -58,15 +59,14 @@ export default function GameCard({
                     <span className="font-robotoRegular ">{schedule}</span>
                 </div>
             </div>
-            {/* <button className="bg-white rounded" onClick={() => console.log()}>OKADOPAS</button>
-             */}
+         
             <div>
                 <div
                     className={`flex flex-col ${
                         numPlayer < 8
                             ? "bg-primaryBlue"
                             : "bg-secondaryYellow text-primaryDarkestBlue"
-                    } w-14 rounded justify-center  text-sm  `}
+                    } w-14 rounded justify-center text-sm`}
                     onClick={(uid, gid) =>
                         signToGame("6479ec3f1de2044d9892aaba", gameId)
                     }
@@ -81,13 +81,14 @@ export default function GameCard({
                     )}
                 </div>
             </div>
-            {/* <div className="flex flex-col mr-3 space-y-1  ">
-          <button className=" bg-primaryBlue text-contrastOffWhite rounded-lg w-[80px] h-[28px] p">
-            0/10 +
-            {/** NUMERO DE JOGADORES INSCRITOS. MUDAR A COR CONSOANTE N DE INSCRITOS
-          </button>
-          
-        </div> */}
         </div>
     );
 }
+
+{/* <div className="flex flex-col mr-3 space-y-1  ">
+<button className=" bg-primaryBlue text-contrastOffWhite rounded-lg w-[80px] h-[28px] p">
+0/10 +
+{/** NUMERO DE JOGADORES INSCRITOS. MUDAR A COR CONSOANTE N DE INSCRITOS
+</button>
+
+</div> */}
