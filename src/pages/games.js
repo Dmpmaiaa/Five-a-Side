@@ -63,10 +63,10 @@ export default function Games(props) {
             <GameCard
               key={ele._id}
               gameId={ele._id}
-              fieldId={ele.idLocation}
-              numPlayer={ele.playersNumber}
-              participants={ele.participants}
-              schedule={ele.schedule}
+              fieldId={ele.locationId}
+              numPlayer={ele.participants}
+              participants={ele.playersId}
+              schedule={ele.hours}
               date={ele.date}
               signToGame={(uid, gid) => signToGame(uid, gid)}
             />

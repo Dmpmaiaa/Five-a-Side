@@ -28,31 +28,31 @@ export default function GameCard({
     useEffect(() => {
         (async () => {
             await fetchData();
-            console.log(gameId);
+            console.log(findCorrectField(fieldId));
         })();
     }, []);
    
 
     return (
-        <div className="text-white flex items-center justify-around rounded-[10px] bg-red-400">
-            <div className="flex flex-col h-[89px]">
+        <div className="text-white flex items-center justify-around rounded-[10px] w-[347px] h-[99px]  bg-[#020e16] mb-4">
+            <div className="flex flex-col h-[100px] w-[100px]">
                 <Image
                     priority
                     src={"/../public/images/sintetico3.jpg"}
                     width={100}
                     height={100}
                     alt="Fotografia do campo"
-                    className=" w-[90px] h-[90px] rounded-[10px]"
+                    className="  rounded-[10px]"
                 />
             </div>
 
-            <div className="flex flex-col pt-5 pb-5 text-contrastOffWhite w-1/3 ">
-                <p className="text-sm pb-3 font-robotoBold">
+            <div className="flex flex-col  pb-6  text-contrastOffWhite w-1/3 ">
+                <p className="text-sm pb-1 font-robotoBold">
                     {findCorrectField(fieldId)?.name}
                 </p>
 
-                <p className="text-xs font-robotoRegular">{location}</p>
-                <div className="flex gap-2 text-xs pt-3">
+                <p className="text-xs font-robotoRegular">{findCorrectField(fieldId)?.location}</p>
+                <div className="flex gap-2 text-xs ">
                     <span className="font-robotoRegular">
                         {moment(date).format("DD-MM-YYYY")}
                     </span>
@@ -60,28 +60,31 @@ export default function GameCard({
                 </div>
             </div>
          
-            <div>
+            <div className="flex flex-col w-[60px] gap-2">
                 <div
-                    className={`flex flex-col ${
+                    className={`flex flex-col w-[60px]  ${
                         numPlayer < 8
                             ? "bg-primaryBlue"
                             : "bg-secondaryYellow text-primaryDarkestBlue"
-                    } w-14 rounded justify-center text-sm`}
+                    } w-14 rounded justify-center  text-sm`}
                     onClick={(uid, gid) =>
                         signToGame("6479ec3f1de2044d9892aaba", gameId)
                     }
                 >
-                    <span>{numPlayer}/10</span>
-                    {participants?.some(
-                        (el) => el === "6479ec3f1de2044d9892asaba"
-                    ) && (
-                        <button className="bg-green-500 rounded-lg w-[80px] h-[28px] ">
+                    <span className="text-center text-xs p-1 font-robotoRegular">{numPlayer}/10 +</span>
+                    </div>
+                    <div>
+                    {/* {participants?.some(
+                        (el) => el !== "6479ec3f1de2044d9892asaba"
+                    ) && ( */}
+                        <div className="bg-green-500  w-[60px] font-riftItalic text-center text-xs ">
                             Inscrito
-                        </button>
-                    )}
+                        </div>
+                        </div>
+                    {/* )} */}
                 </div>
             </div>
-        </div>
+
     );
 }
 
