@@ -17,17 +17,19 @@ export default function Games(props) {
 
     
 
-    const fetchData = async () => {
-        const res = await fetch(`/api/jogos/?date=${selected}`);
-        const data = await res.json();
-        setGamesScheduled(await data);
+    const fetchData = async (endpoint) => {
+        const res = await fetch(`/api/jogos?date=${endpoint}`);
+        if(res.status === 200) {
+            const data = await (res).json();
+            setGamesScheduled(await data);
+        }
     };
 
     useEffect(() => {
-        (async () => {
-            await fetchData();
-        })();
-    }, [selected]);
+        fetchData(selected)
+    }, [selected])
+
+    
 
 
     const signToGame = async (uid, gid) => {
