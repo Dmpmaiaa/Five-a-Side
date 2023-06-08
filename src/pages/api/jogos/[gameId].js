@@ -10,6 +10,7 @@ export default async function handler(req, res) {
 
         if (req.method === "PATCH") {
             const data = req.body;
+            console.log(data)
 
             const addPlayer = await newPlayer(data.uid, gameId);
             return res.status(201).json({ addPlayer });

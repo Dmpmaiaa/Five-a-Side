@@ -1,3 +1,4 @@
+import { ObjectId } from "mongodb";
 import {
     addNewPlayer,
     createNewGame,
@@ -30,6 +31,7 @@ export async function getGamesByDate(date) {
     }
     if (date === "day") {
         const games = await findGamesToday();
+        console.log(games)
         return games;
     }
 }
@@ -37,12 +39,16 @@ export async function getGamesByDate(date) {
 export async function newGame(data) {
     const newData = {
         date: new Date(data.date),
-        
+        hours: data.hours,
+        locationId: new ObjectId(data.locationId),
+        participants: data.participants,
+        hostId: new ObjectId(data.hostId),
+        playersId: [],
+    };
 
-    }
-    const gameCreation = await createNewGame(data);
-    console.log(data.date)
-
+    
+    const gameCreation = await createNewGame(newData);
+    return gameCreation;
 }
 
 export async function newPlayer(uid, gameId) {

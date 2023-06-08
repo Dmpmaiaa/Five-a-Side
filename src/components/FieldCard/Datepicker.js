@@ -1,12 +1,5 @@
-import { Input, outlinedInputClasses } from "@mui/material";
-import { makeStyles } from "@mui/styled-engine";
-import {
-    DateField,
-    DateTimePicker,
-    LocalizationProvider,
-} from "@mui/x-date-pickers";
+import { DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-
 
 export default function Datepicker({ updateDate }) {
     return (
@@ -15,7 +8,6 @@ export default function Datepicker({ updateDate }) {
                 <DateTimePicker
                     value={"value"}
                     onChange={(e) => updateDate(e)}
-                    on
                     views={["day", "hours"]}
                     sx={{
                         "& .MuiInputBase-root": {
@@ -28,7 +20,6 @@ export default function Datepicker({ updateDate }) {
                             {
                                 borderColor: "#0C8CE9",
                             },
-
                     }}
                 />
             </LocalizationProvider>

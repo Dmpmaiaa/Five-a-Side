@@ -23,8 +23,9 @@ export default function DetailedCard({ description, postGame, handleInfo }) {
     ];
 
     const handleDateAndHours = (date) => {
-        handleInfo("date", new Date(moment(date.$d).format("DD-MM-YYYY")));
-        handleInfo("hours", new Date(moment(date.$d).format("HH:mm")));
+        handleInfo("date", new Date(moment(date.$d).format("YYYY-MM-DD")));
+        handleInfo("hours", moment(date.$d).format("HH:mm"));
+        console.log(new Date(moment(date.$d).format("YYYY-MM-DD")));
     };
 
     return (
@@ -42,6 +43,14 @@ export default function DetailedCard({ description, postGame, handleInfo }) {
                         valueLabelDisplay="off"
                         min={1}
                         max={10}
+                        sx={{
+                            "& .css-yafthl-MuiSlider-markLabel": {
+                                color: "#f4f4f9",
+                            },
+                            "& .css-1eoe787-MuiSlider-markLabel": {
+                              color: "#0C8CE9"
+                            }
+                        }}
                     />
                 </Box>
             </div>
@@ -52,10 +61,10 @@ export default function DetailedCard({ description, postGame, handleInfo }) {
                 />
             </div>
 
-      <section className="text-contrastOffWhite font-robotoThin px-3 py-6">
-        {/* <h5 className="font-bold pb-3">Sobre</h5>  ACHO QUE NÃO HA NECESSIDADE DE DIZER "SOBRE". TIP DA MARIA SENSUAL */}
-        <p>{description}</p>
-      </section>
+            <section className="text-contrastOffWhite font-robotoThin px-3 py-6">
+                {/* <h5 className="font-bold pb-3">Sobre</h5>  ACHO QUE NÃO HA NECESSIDADE DE DIZER "SOBRE". TIP DA MARIA SENSUAL */}
+                <p>{description}</p>
+            </section>
 
             <div className="flex justify-center items-end py-4">
                 <button

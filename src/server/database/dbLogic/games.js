@@ -9,22 +9,26 @@ const COLLECTION_NAME = "games";
 //   ************ BY DATE ************
 export async function findGamesToday() {
     const collection = await getMongoCollection(COLLECTION_NAME);
-    const currentDate = moment().format("YYYY-MM-DD");
+    const currentDate = moment().startOf("day");
+    console.log({
+        $gte: currentDate.toDate(),
+        $lt: moment(currentDate).endOf("day").toDate(),
+    });
+    const result = await collection
+        .find({
+            date: {
+                $gte: currentDate.toDate(),
+                $lt: moment(currentDate).endOf("day").toDate(),
+            },
+        })
+        .toArray();
 
-    const day = {
-        date: {
-            $eq: new Date(currentDate),
-        },
-    };
+    /*  const orderedResult = await result.sort(
+        (a, b) => Number(a.hours.slice(0, -3)) - Number(b.hours.slice(0, -3))
+    ); */
 
-    const result = await collection.find(day).toArray();
-
-    const orderedResult = await result.sort(
-        (a, b) =>
-            Number(a.schedule.slice(0, -3)) - Number(b.schedule.slice(0, -3))
-    );
-
-    return orderedResult;
+    // console.log(await result);
+    return result
 }
 
 export async function findGameByWeek() {
@@ -39,14 +43,7 @@ export async function findGameByWeek() {
         },
     };
 
-    const result = await collection
-        .find({
-            date: {
-                $gte: startDate,
-                $lte: endDate,
-            },
-        })
-        .toArray();
+    const result = await collection.find(weeklyDate).toArray();
     return result;
 }
 
@@ -55,7 +52,6 @@ export async function findGameByMonth() {
     const currentDate = moment().startOf("month");
     const startDate = currentDate.toDate();
     const endDate = currentDate.endOf("month").toDate();
-
     const monthlyDate = {
         date: {
             $gte: startDate,
@@ -89,7 +85,6 @@ export async function findGamesByLocation(location) {
 // ********* --- INSERT ITEMS --- *********
 
 export async function createNewGame(data) {
- 
 
     const collection = await getMongoCollection(COLLECTION_NAME);
     const result = collection.insertOne(data);
@@ -110,8 +105,8 @@ export async function addNewPlayer(uid, gameId) {
         const result = await collection.updateOne(
             { _id: new ObjectId(gameId) },
             {
-                $push: { idPlayers: new ObjectId(uid) },
-                $inc: { playersNumber: 1 },
+                $push: { playersId: new ObjectId(uid) },
+                $inc: { participants: 1 },
             }
         );
         return result;

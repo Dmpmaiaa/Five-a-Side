@@ -4,8 +4,10 @@ import Topbar from "@/components/Topbar";
 
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import Modal from "./Modal";
 
 export default function Fields(props) {
+    const [confirmation, setConfirmation] = useState(false);
     const [fields, setFields] = useState([]);
     const [dataToSend, setDataToSend] = useState({
         date: "",
@@ -39,7 +41,6 @@ export default function Fields(props) {
     }, []);
 
     const postGame = async () => {
-
         console.log(dataToSend);
         const res = await fetch("/api/jogos/", {
             method: "POST",
@@ -50,6 +51,7 @@ export default function Fields(props) {
         });
 
         const data = await res.json();
+        console.log(dataToSend);
         const status = res.status;
         if (status === 201) {
             toast.success("Jogo marcado!", {
@@ -90,6 +92,8 @@ export default function Fields(props) {
                         </li>
                     ))}
                 </ul>
+
+                {confirmation && <Modal />}
                 <ToastContainer
                     position="bottom-center"
                     autoClose={4000}
