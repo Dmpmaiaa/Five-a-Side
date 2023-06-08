@@ -1,9 +1,5 @@
-import {
-    DateTimePicker,
-    LocalizationProvider,
-} from "@mui/x-date-pickers";
+import { DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-
 
 export default function Datepicker({ updateDate }) {
     return (
@@ -24,7 +20,6 @@ export default function Datepicker({ updateDate }) {
                             {
                                 borderColor: "#0C8CE9",
                             },
-
                     }}
                 />
             </LocalizationProvider>
