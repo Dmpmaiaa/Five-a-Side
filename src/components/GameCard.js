@@ -8,6 +8,7 @@ export default function GameCard({
   location,
   numPlayer,
   schedule,
+  participants,
   date,
   signToGame,
   fieldId,
@@ -29,7 +30,7 @@ export default function GameCard({
       await fetchData();
     })();
   }, []);
-
+  console.log(participants)
   return (
     <div className="text-white pl-1 h-[90px] flex items-center justify-around border rounded-[10px] border-white">
       <div className="flex flex-col mx-1 w-[89px] h-[89px]">
@@ -62,26 +63,27 @@ export default function GameCard({
        */}
       <div>
         <div
-          className={`flex ${
+          className={`flex flex-col ${
             numPlayer < 8
               ? "bg-primaryBlue"
               : "bg-secondaryYellow text-primaryDarkestBlue"
           } w-14 rounded justify-center m-2 text-sm `}
           onClick={(uid, gid) => signToGame("6479ec3f1de2044d9892aaba", gameId)}
         >
-          <span>{numPlayer}</span>
+          <span>{numPlayer}/10</span>
+          {participants.some(el => el === "6479ec3f1de2044d9892asaba") && <button className="bg-green-500 rounded-lg w-[80px] h-[28px] ">
+            Inscrito
+          </button>}
         </div>
         
       </div>
-      <div className="flex flex-col mr-3 space-y-1  ">
+      {/* <div className="flex flex-col mr-3 space-y-1  ">
           <button className=" bg-primaryBlue text-contrastOffWhite rounded-lg w-[80px] h-[28px] p">
             0/10 +
-            {/** NUMERO DE JOGADORES INSCRITOS. MUDAR A COR CONSOANTE N DE INSCRITOS*/}
+            {/** NUMERO DE JOGADORES INSCRITOS. MUDAR A COR CONSOANTE N DE INSCRITOS
           </button>
-          <button className="bg-green-500 rounded-lg w-[80px] h-[28px] ">
-            Inscrito
-          </button>
-        </div>
+          
+        </div> */}
     </div>
   );
 }

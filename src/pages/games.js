@@ -70,7 +70,7 @@ export default function Games(props) {
                             gameId={ele._id}
                             fieldId={ele.idLocation}
                             numPlayer={ele.playersNumber}
-                            participants={ele.participants}
+                            participants={ele.idPlayers}
                             schedule={ele.schedule}
                             date={ele.date}
                             signToGame={(uid, gid) => signToGame(uid, gid)}
