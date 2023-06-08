@@ -12,7 +12,6 @@ export default function Datepicker({ updateDate }) {
                 <DateTimePicker
                     value={"value"}
                     onChange={(e) => updateDate(e)}
-                    on
                     views={["day", "hours"]}
                     sx={{
                         "& .MuiInputBase-root": {
