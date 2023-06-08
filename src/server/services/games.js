@@ -31,7 +31,7 @@ export async function getGamesByDate(date) {
     }
     if (date === "day") {
         const games = await findGamesToday();
-        console.log(games)
+    
         return games;
     }
 }
