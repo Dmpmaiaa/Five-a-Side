@@ -8,7 +8,7 @@ import {
 } from "@/server/services/games";
 
 export default async function handler(req, res) {
-    console.log("OLA")
+    console.log("OLA");
     try {
         const location = req.query.location;
         const date = req.query.date;
@@ -24,21 +24,20 @@ export default async function handler(req, res) {
 
             if (date) {
                 const games = await getGamesByDate(date);
-                console.log("HA JOGOS?")
-                console.log(games)
+
+                console.log(games);
                 if (games) {
-                    console.log("HA")
-                    console.log("HA")
                     return res.status(200).json(games);
                 }
-                return res.status(404).json({message: "no_games_found"});
+                return res.status(404).json({ message: "no_games_found" });
             }
         }
 
         if (req.method === "POST") {
-            //checkDataFromNewGame(req, res);
             const data = req.body;
-            console.log(data);
+            checkDataFromNewGame(req, res)
+         
+
             const dataForGame = await newGame(data);
             return res.status(201).json({ dataForGame });
         }

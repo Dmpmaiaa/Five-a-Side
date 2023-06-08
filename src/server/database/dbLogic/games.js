@@ -85,6 +85,7 @@ export async function findGamesByLocation(location) {
 // ********* --- INSERT ITEMS --- *********
 
 export async function createNewGame(data) {
+
     const collection = await getMongoCollection(COLLECTION_NAME);
     const result = collection.insertOne(data);
     return result;
@@ -104,8 +105,8 @@ export async function addNewPlayer(uid, gameId) {
         const result = await collection.updateOne(
             { _id: new ObjectId(gameId) },
             {
-                $push: { idPlayers: new ObjectId(uid) },
-                $inc: { playersNumber: 1 },
+                $push: { playersId: new ObjectId(uid) },
+                $inc: { participants: 1 },
             }
         );
         return result;

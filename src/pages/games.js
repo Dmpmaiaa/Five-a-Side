@@ -13,24 +13,17 @@ export default function Games(props) {
     const [gamesScheduled, setGamesScheduled] = useState([]);
     const [selected, setSelected] = useState("day");
 
-
-
-    
-
     const fetchData = async (endpoint) => {
         const res = await fetch(`/api/jogos?date=${endpoint}`);
-        if(res.status === 200) {
-            const data = await (res).json();
+        if (res.status === 200) {
+            const data = await res.json();
             setGamesScheduled(await data);
         }
     };
 
     useEffect(() => {
-        fetchData(selected)
-    }, [selected])
-
-    
-
+        fetchData(selected);
+    }, [selected]);
 
     const signToGame = async (uid, gid) => {
         const res = await fetch(`/api/jogos/${gid}`, {
@@ -64,21 +57,26 @@ export default function Games(props) {
                 </div>
             </div>
 
-            <div className="flex flex-col items-center w-full">
-                {gamesScheduled &&
-                    gamesScheduled?.map((ele) => (
-                        <GameCard
-                            key={ele._id}
-                            gameId={ele._id}
-                            fieldId={ele.idLocation}
-                            numPlayer={ele.playersNumber}
-                            participants={ele.idPlayers}
-                            schedule={ele.schedule}
-                            date={ele.date}
-                            signToGame={(uid, gid) => signToGame(uid, gid)}
-                        />
-                    ))}
-
+            <div className="flex flex-col px-8 w-full ">
+                <div className="mb-24">
+                    {gamesScheduled &&
+                        gamesScheduled?.map((ele) => (
+                            <div className="w-full">
+                                <GameCard
+                                    key={ele._id}
+                                    gameId={ele._id}
+                                    fieldId={ele.idLocation}
+                                    numPlayer={ele.playersNumber}
+                                    participants={ele.playersId}
+                                    schedule={ele.hours}
+                                    date={ele.date}
+                                    signToGame={(uid, gid) =>
+                                        signToGame(uid, gid)
+                                    }
+                                />
+                            </div>
+                        ))}
+                </div>
 
                 <Navbar />
             </div>
@@ -100,6 +98,3 @@ const MenuItem = ({ text, selected, onClick }) => (
         {selected && <motion.div className="underline" layoutId="underline" />}
     </motion.div>
 );
-
-
-  

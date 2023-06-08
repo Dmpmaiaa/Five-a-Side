@@ -43,6 +43,14 @@ export default function DetailedCard({ description, postGame, handleInfo }) {
                         valueLabelDisplay="off"
                         min={1}
                         max={10}
+                        sx={{
+                            "& .css-yafthl-MuiSlider-markLabel": {
+                                color: "#f4f4f9",
+                            },
+                            "& .css-1eoe787-MuiSlider-markLabel": {
+                              color: "#0C8CE9"
+                            }
+                        }}
                     />
                 </Box>
             </div>

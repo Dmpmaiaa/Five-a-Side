@@ -41,10 +41,12 @@ export async function newGame(data) {
         date: new Date(data.date),
         hours: data.hours,
         locationId: new ObjectId(data.locationId),
-        participants: data.hours,
+        participants: data.participants,
         hostId: new ObjectId(data.hostId),
         playersId: [],
     };
+
+    
     const gameCreation = await createNewGame(newData);
     return gameCreation;
 }
