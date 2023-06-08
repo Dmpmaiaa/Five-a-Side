@@ -8,7 +8,7 @@ import moment from "moment";
     /* PROPS A VIAJAREM ATÉ NARNIA */
 }
 
-export default function DetailedCard({ description, postGame, handleInfo }) {
+export default function DetailedCard({ cardId, description, postGame, handleInfo }) {
     const options = [
         { value: "1", label: "1" },
         { value: "2", label: "2" },
@@ -25,7 +25,9 @@ export default function DetailedCard({ description, postGame, handleInfo }) {
     const handleDateAndHours = (date) => {
         handleInfo("date", new Date(moment(date.$d).format("YYYY-MM-DD")));
         handleInfo("hours", moment(date.$d).format("HH:mm"));
-        console.log(new Date(moment(date.$d).format("YYYY-MM-DD")));
+        handleInfo("locationId", cardId);
+
+      
     };
 
     return (
