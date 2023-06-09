@@ -69,6 +69,7 @@ export default function Games(props) {
         fetchData(selected);
     };
 
+
     return (
         <div className="bg-primaryDarkestBlue h-screen w-screen">
             <div className="flex justify-center p-8">
@@ -123,9 +124,10 @@ export default function Games(props) {
                     theme="dark"
                 />
             </div>
-            <Navbar />
+            <Navbar page={"games"}/>
         </div>
     );
+
 }
 
 const MenuItem = ({ text, selected, onClick }) => (
