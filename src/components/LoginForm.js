@@ -32,6 +32,7 @@ export default function LoginForm(props) {
 
     return (
         <form>
+            <div className="flex flex-col">
             <input
                 value={state.name}
                 type="text"
@@ -46,6 +47,7 @@ export default function LoginForm(props) {
                 placeholder="Senha"
                 className="bg-transparent placeholder-contrastOffWhite w-64 border-b border-contrastOffWhite p-3"
             ></input>
+            </div>
         </form>
     );
 }

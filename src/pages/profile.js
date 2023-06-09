@@ -20,7 +20,7 @@ export default function Profile(props) {
 
                 <div className=" text-2xl pt-5">
                     <span className="block text-center font-robotoBold">
-                        {" "}ta
+                        {" "}
                         Fernando{" "}
                     </span>
                     <span className="font-robotoBold ">Mendes, 60 🇵🇹 </span>
