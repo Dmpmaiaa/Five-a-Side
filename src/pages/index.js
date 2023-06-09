@@ -19,7 +19,7 @@ export default function Home() {
       <Image src={logo} width={160} height={160} />
 
       
-      <div role="status">
+   {/*    <div role="status">
         <svg
           aria-hidden="true"
           class="inline w-8 h-8 mr-2 text-primaryDarkerBlue animate-spin  fill-contrastOffWhite"
@@ -37,7 +37,7 @@ export default function Home() {
           />
         </svg>
        
-      </div>
+      </div> */}
     </div>
   );
 }
