@@ -31,15 +31,15 @@ export default function Games(props) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(uid),
+      body: JSON.stringify({uid, gid}),
     });
-    const data = await res.json();
 
-    fetchData();
+    const data = await res.json(); 
+    fetchData(selected)
   };
 
   return (
-    <div className="bg-primaryDarkestBlue h-screen ">
+    <div className="bg-primaryDarkestBlue h-screen w-screen">
       <div className="flex justify-center p-8">
         <div
           className="bg-primaryDarkerBlue w-[310px] h-[42
@@ -58,23 +58,29 @@ export default function Games(props) {
         </div>
       </div>
 
-      <div className="flex flex-col items-center w-full">
-        {gamesScheduled &&
-          gamesScheduled?.map((ele) => (
-            <GameCard
-              key={ele._id}
-              gameId={ele._id}
-              fieldId={ele.locationId}
-              numPlayer={ele.participants}
-              participants={ele.playersId}
-              schedule={ele.hours}
-              date={ele.date}
-              signToGame={(uid, gid) => signToGame(uid, gid)}
-            />
-          ))}
 
-        <Navbar />
+      <div className="flex flex-col ">
+        <div className="flex flex-col items-center mb-24">
+          {gamesScheduled &&
+            gamesScheduled?.map((ele) => (
+              <div>
+                <GameCard
+                  key={ele._id}
+                  gameId={ele._id}
+                  fieldId={ele.locationId}
+                  numPlayer={ele.participants}
+                  participants={ele.playersId}
+                  schedule={ele.hours}
+                  date={ele.date}
+                  signToGame={(uid, gid) => signToGame(uid, gid)}
+                />
+              </div>
+            ))}
+        </div>
+
       </div>
+      <Navbar />
+
     </div>
   );
 }
