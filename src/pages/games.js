@@ -31,15 +31,15 @@ export default function Games(props) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(uid),
+      body: JSON.stringify({uid, gid}),
     });
-    const data = await res.json();
+    const data = await res.json(); 
+    fetchData(selected)
   
-    fetchData();
   };
 
   return (
-    <div className="bg-primaryDarkestBlue h-screen ">
+    <div className="bg-primaryDarkestBlue h-screen w-screen">
       <div className="flex justify-center p-8">
         <div
           className="bg-primaryDarkerBlue w-[312px] h-[42x] rounded-full flex justify-center items-center font-robotoRegular text-contrastOffWhite py-2"
@@ -57,8 +57,8 @@ export default function Games(props) {
         </div>
       </div>
 
-      <div className="flex flex-col">
-        <div className="mb-24">
+      <div className="flex flex-col ">
+        <div className="flex flex-col items-center mb-24">
           {gamesScheduled &&
             gamesScheduled?.map((ele) => (
               <div>
@@ -76,7 +76,7 @@ export default function Games(props) {
             ))}
         </div>
 
-      </div>x
+      </div>
       <Navbar />
     </div>
   );

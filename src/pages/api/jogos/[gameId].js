@@ -10,13 +10,13 @@ export default async function handler(req, res) {
 
         if (req.method === "PATCH") {
             const data = req.body;
-           
+            console.log(data)
 
-            const addPlayer = await newPlayer(data.uid, gameId);
+            const addPlayer = await newPlayer(data.uid, data.gid);
             return res.status(201).json({ addPlayer });
         }
 
-        return res.status(404).json(/* MENSAGEM DE ERRO */);
+        return res.status(404).json({msg: "game:full"});
     } catch (err) {
         console.log(err);
     }
