@@ -1,10 +1,25 @@
 import Navbar from "@/components/Navbar";
-import { useEffect } from "react";
+import { use, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Topbar from "@/components/Topbar";
+import { useRouter } from "next/router";
 
 export default function Profile(props) {
+    const userId = "6479ec3f1de2044d9892aaba";
+    const [userInfo, setUserInfo] = useState();
+
+    const router = useRouter();
+
+    const fetchData = async (uid) => {
+        const res = await fetch(`/api/users/${uid}`);
+        const data = await res.json();
+        setUserInfo(data);
+    };
+    
+    
+
+
     return (
         <div className="flex flex-col items-center justify-center overflow-hidden pt-3">
             <Topbar />
@@ -20,17 +35,25 @@ export default function Profile(props) {
 
                 <div className=" text-2xl pt-5">
                     <span className="block text-center font-robotoBold">
-                        {" "}
-                        Fernando{" "}
+                        {userInfo?.name.split(" ")[0]}
                     </span>
-                    <span className="font-robotoBold ">Mendes, 60 🇵🇹 </span>
+                    <span className="font-robotoBold ">
+                        {userInfo?.name.split(" ")[1]}, {userInfo?.age}{" "}
+                        {userInfo?.nationality}
+                    </span>
                 </div>
                 <div className="space-y-3 mt-10 flex flex-col items-center justify-center">
                     <div className="flex flex-col gap-3 text-center pb-5">
-                        <div className="text-contrastOffWhite w-72 h-12  rounded-full flex items-center justify-center bg-primaryDarkerBlue font-robotoRegular">
+                        <div
+                            onClick={() => router.push("/scheduledgames")}
+                            className="text-contrastOffWhite w-72 h-12  rounded-full flex items-center justify-center bg-primaryDarkerBlue font-robotoRegular"
+                        >
                             <span>Jogos Criados</span>
                         </div>
-                        <div className="text-contrastOffWhite  w-72 h-12 flex items-center justify-center rounded-full bg-primaryDarkerBlue text-center font-robotoRegular ">
+                        <div
+                            onClick={() => router.push("/login")}
+                            className="text-contrastOffWhite  w-72 h-12 flex items-center justify-center rounded-full bg-primaryDarkerBlue text-center font-robotoRegular "
+                        >
                             <span>Logout</span>
                         </div>
                     </div>
@@ -41,7 +64,9 @@ export default function Profile(props) {
                                 <span className="opacity-50">Sobre Nós</span>
                             </Link>
                             <Link href={"/terms"}>
-                                <span className="opacity-50">Termos e Condições</span>
+                                <span className="opacity-50">
+                                    Termos e Condições
+                                </span>
                             </Link>
                         </div>
                     </div>
