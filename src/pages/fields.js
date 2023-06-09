@@ -1,10 +1,9 @@
 import Card from "@/components/FieldCard/Card";
 import Navbar from "@/components/Navbar";
 import Topbar from "@/components/Topbar";
-
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import Modal from "./Modal";
+
 
 export default function Fields(props) {
     const [confirmation, setConfirmation] = useState(false);
@@ -51,7 +50,7 @@ export default function Fields(props) {
         });
 
         const data = await res.json();
-        console.log(data)
+
         const status = res.status;
         if (status === 201) {
             toast.success("Jogo marcado!", {
@@ -104,7 +103,6 @@ export default function Fields(props) {
                     ))}
                 </ul>
 
-               {/*  {confirmation && <Modal />} */}
                 <ToastContainer
                     position="bottom-center"
                     autoClose={5000}

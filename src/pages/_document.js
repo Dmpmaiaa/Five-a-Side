@@ -7,7 +7,7 @@ export default function Document() {
     return (
         <Html lang="en">
             <Head />
-            <body className="h-screen relative overflow-x-hidden bg-primaryDarkestBlue flex flex-col items-center">
+            <body className="relative h-fit bg-primaryDarkestBlue flex flex-col items-center">
                 <Main />
                 <NextScript />
                

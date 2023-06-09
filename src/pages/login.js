@@ -8,11 +8,7 @@ export default function Login(props) {
     const [loggedIn, setLoggedIn] = useState(true);
 
 
-    useEffect(() => {
-        setInterval(() => {
-            setLoggedIn(Boolean(localStorage.getItem("token")));
-        }, 1000);
-    }, []);
+
 
 
     

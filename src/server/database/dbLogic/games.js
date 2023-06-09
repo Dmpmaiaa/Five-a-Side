@@ -23,16 +23,17 @@ export async function findGamesToday() {
   const orderedResult = await result.sort(
     (a, b) => Number(a.hours.slice(0, -3)) - Number(b.hours.slice(0, -3))
   );
-  
 
-  return orderedResult;
+  const newOResult = orderedResult.filter((ele) => ele.participants  < 10);
+
+  return newOResult;
 }
 
 export async function findGameByWeek() {
   const collection = await getMongoCollection(COLLECTION_NAME);
   const currentDate = moment().startOf("week");
   const startDate = currentDate.toDate();
-  const endDate = currentDate.add(6, "days").toDate();
+  const endDate = currentDate.add(7, "days").toDate();
   const weeklyDate = {
     date: {
       $gte: startDate,
@@ -41,7 +42,9 @@ export async function findGameByWeek() {
   };
 
   const result = await collection.find(weeklyDate).toArray();
-  return result;
+
+  const orderedResult = result.filter((ele) => ele.participants < 10);
+  return orderedResult;
 }
 
 export async function findGameByMonth() {
@@ -57,7 +60,8 @@ export async function findGameByMonth() {
   };
 
   const result = await collection.find(monthlyDate).toArray();
-  return result;
+  const orderedResult = result.filter((ele) => ele.participants < 10);
+  return orderedResult;
 }
 
 //  ************ FIND ITEMS BY ID ************
@@ -92,23 +96,24 @@ export async function addNewPlayer(uid, gameId) {
 
   const collection = await getMongoCollection(COLLECTION_NAME);
   const game = await collection.findOne({ _id: new ObjectId(gameId) });
-  const isAlreadyParticipating = game.idPlayers.some(
+ 
+  const isAlreadyParticipating = game.playersId.some(
     (playerId) => playerId.toString() === uid
   );
-  const isHost = game.idHost.toString() === uid;
+ 
+  const isHost = game.hostId.toString() === uid;
 
-  if (game.playersNumber < 10 && !isAlreadyParticipating && !isHost) {
+  if (game.participants < 10 && !isAlreadyParticipating) {
     const result = await collection.updateOne(
       { _id: new ObjectId(gameId) },
       {
         $push: { playersId: new ObjectId(uid) },
         $inc: { participants: 1 },
       }
-    );
-    return result;
-  } else if (game.playerNumbers > 9) {
-    return "game_is_full";
-  } else if (game.idPlayers.includes(uid)) {
-    return "player_already_signed";
+      );
+     
+    return true;
+
   }
+  return false
 }
