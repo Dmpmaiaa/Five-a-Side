@@ -117,3 +117,30 @@ export async function addNewPlayer(uid, gameId) {
   }
   return false
 }
+
+export async function removePlayerFromGame(uid, gameId) {
+  // CHECK IF USER IS ALREADY SIGNED IN GAME
+  console.log('oi')
+  const collection = await getMongoCollection(COLLECTION_NAME);
+  const game = await collection.findOne({ _id: new ObjectId(gameId) });
+ 
+  const isAlreadyParticipating = game.playersId.some(
+    (playerId) => playerId.toString() === uid
+  );
+ 
+  const isHost = game.hostId.toString() === uid;
+
+  if (isAlreadyParticipating) {
+    const result = await collection.updateOne(
+      { _id: new ObjectId(gameId) },
+      {
+        $pull: { playersId: new ObjectId(uid) },
+        $inc: { participants: -1 },
+      }
+      );
+     
+    return true;
+
+  }
+  return false
+}
