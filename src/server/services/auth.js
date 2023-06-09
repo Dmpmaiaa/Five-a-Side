@@ -30,7 +30,7 @@ async function validateSession(token) {
 }
 async function getUser(id) {
     const result = await findUserAuth(id)
-    console.log(result)
+ 
     return result
 }
 

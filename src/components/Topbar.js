@@ -1,14 +1,10 @@
+import logo from "#/svg/logo.svg";
+import Image from "next/image";
+
 export default function Topbar(props) {
     return (
-        <div className="flex justify-center w-full ">
-            <div className="flex flex-col items-center pt-3 font-f">
-                <h1 className="font-bold italic text-contrastOffWhite text-lg">
-                    5
-                </h1>
-                <p className="font-thin italic text-contrastOffWhite text-xs">
-                    Five a Side
-                </p>
-            </div>
+        <div className="mt-4">
+            <Image src={logo} width={40} height={40} alt="Logo" />
         </div>
     );
 }

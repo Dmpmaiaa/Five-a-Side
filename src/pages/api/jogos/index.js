@@ -8,10 +8,10 @@ import {
 } from "@/server/services/games";
 
 export default async function handler(req, res) {
+
   try {
     const location = req.query.location;
     const date = req.query.date;
-
 
     if (req.method === "GET") {
       if (location) {
@@ -24,30 +24,26 @@ export default async function handler(req, res) {
 
       if (date) {
         const games = await getGamesByDate(date);
+
+       
         if (games) {
           return res.status(200).json(games);
         }
-        return res.status(404).json(/* MENSAGEM DE ERRO */);
+        return res.status(404).json({ message: "no_games_found" });
       }
-
-            // if (day) {
-            //     const games = await getGames();
-            //     if (games) {
-            //         return res.status(200).json(games);
-            //     }
-            //     return res.status(404).json(/* MENSAGEM DE ERRO */);
-            // }
-        }
-
+    }
 
     if (req.method === "POST") {
-      checkDataFromNewGame(req, res)
-      // verificaCoisas(req,res)
-      // verificaData (req,res)
       const data = req.body;
-      console.log(data);
+
+      if (checkDataFromNewGame(req, res)) {
+        return res.status(401).json({msg: checkDataFromNewGame(req, res)})
+      }
+
       const dataForGame = await newGame(data);
       return res.status(201).json({ dataForGame });
-
     }
+  } catch (err) {
+    console.log(err);
+  }
 }

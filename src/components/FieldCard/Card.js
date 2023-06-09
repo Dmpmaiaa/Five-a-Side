@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { use, useEffect, useState } from "react";
 import DetailedCard from "./DetailedCard";
 import FieldDetails from "./FieldDetails";
 
@@ -14,24 +14,26 @@ export default function Card({
   cardId,
   description,
   postGame,
-  handleInfo
+  handleInfo,
 }) {
   const [open, setOpen] = useState(false);
   const hostId = "6479ec3f1de2044d9892aaba";
 
+  useEffect(() => {
 
+    handleInfo("hostId", hostId);
+   
+  }, []);
 
   return (
     <>
       <motion.div
         animate={{
           height: open ? "fit-content" : "fit-content",
-          
         }}
-
         className="w-[368px] bg-primaryDarkerBlue rounded-lg border-primaryBlue border-solid border border-opacity-10 flex flex-col items-center px-[10px] mt-4"
       >
-        <div className="relative w-full rounded-lg h-[200px]">
+        <div className="relative w-full mt-3 rounded-lg h-[200px]">
           <Image
             onClick={() => setOpen((prevState) => !prevState)}
             priority
@@ -57,7 +59,9 @@ export default function Card({
               {name}
             </h2>
 
-            <span className="text-primaryBlue font-robotoRegular text-xs">{workingHours}</span>
+            <span className="text-primaryBlue font-robotoRegular text-xs">
+              {workingHours}
+            </span>
 
             <span className="text-contrastOffWhite font-robotoThin text-sm block ">
               {location}
@@ -76,18 +80,19 @@ export default function Card({
 
         {open && (
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 0, translateY: 10, zIndex: 0 }}
             animate={{
-              opacity: 1,
+              opacity: open ? 1 : 0,
+              translateY: open ? 0 : 40,
+              zIndex: 20,
             }}
             transition={{ duration: 0.4 }}
             className="text-contrastOffWhite relative"
           >
             <DetailedCard
-                 handleInfo={(date, id, participants, schedule, hostId) =>
-                  
-                  handleInfo(date, id, participants, schedule, hostId)}
-
+                
+              cardId={cardId}
+              handleInfo={(field, value) => handleInfo(field, value)}
               description={description}
               postGame={postGame}
             />
@@ -97,4 +102,3 @@ export default function Card({
     </>
   );
 }
-

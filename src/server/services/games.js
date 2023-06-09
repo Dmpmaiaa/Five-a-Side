@@ -1,3 +1,4 @@
+import { ObjectId } from "mongodb";
 import {
     addNewPlayer,
     createNewGame,
@@ -9,11 +10,6 @@ import {
     findGamesToday,
 } from "../database/dbLogic/games";
 
-/* export async function getGamesToday() {
-    const games = await findGamesToday();
-    return games;
-}
- */
 export async function getGameById(id) {
     const game = await findGameById(id);
     return game;
@@ -35,12 +31,23 @@ export async function getGamesByDate(date) {
     }
     if (date === "day") {
         const games = await findGamesToday();
+    
         return games;
     }
 }
 
 export async function newGame(data) {
-    const gameCreation = await createNewGame(data);
+    const newData = {
+        date: new Date(data.date),
+        hours: data.hours,
+        locationId: new ObjectId(data.locationId),
+        participants: data.participants,
+        hostId: new ObjectId(data.hostId),
+        playersId: [],
+    };
+
+    
+    const gameCreation = await createNewGame(newData);
     return gameCreation;
 }
 

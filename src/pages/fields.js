@@ -4,28 +4,24 @@ import Topbar from "@/components/Topbar";
 
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-
-
+import Modal from "./Modal";
 
 export default function Fields(props) {
+    const [confirmation, setConfirmation] = useState(false);
     const [fields, setFields] = useState([]);
     const [dataToSend, setDataToSend] = useState({
         date: "",
-        idCampo: "",
+        hours: "",
+        locationId: "",
         participants: "",
-        idHost: "",
-        idPlayers: [],
-        schedule: "",
+        hostId: "",
+        playersId: [],
     });
 
-    const handleInfo = (e, cardId, participants, schedule, hostId) => {
+    const handleStateChange = (field, value) => {
         setDataToSend((prevState) => ({
             ...prevState,
-            date: "",
-            idCampo: cardId,
-            participants,
-            schedule,
-            idHost: hostId,
+            [field]: value,
         }));
     };
 
@@ -35,8 +31,7 @@ export default function Fields(props) {
         return await data;
     };
 
-
-/*     GETS DATA FROM FIELDS */
+    /*     GETS DATA FROM FIELDS */
 
     useEffect(() => {
         (async () => {
@@ -45,17 +40,8 @@ export default function Fields(props) {
         })();
     }, []);
 
-
-
-    const postGame = async (idCampo, participants, schedule, host) => {
-        setDataToSend((prevState) => ({
-            ...prevState,
-            idCampo,
-            participants,
-            host,
-            schedule,
-        }));
-
+    const postGame = async () => {
+       
         const res = await fetch("/api/jogos/", {
             method: "POST",
             headers: {
@@ -65,6 +51,7 @@ export default function Fields(props) {
         });
 
         const data = await res.json();
+
         const status = res.status;
         if (status === 201) {
             toast.success("Jogo marcado!", {
@@ -77,6 +64,17 @@ export default function Fields(props) {
                 progress: undefined,
                 theme: "dark",
             });
+        } else if(status === 401){
+            toast.error( data.msg, {
+                position: "bottom-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                });
         }
     };
 
@@ -85,8 +83,7 @@ export default function Fields(props) {
             <>
                 <Topbar />
 
-
-                <ul>
+                <ul className="mb-24 z-30">
                     {fields?.map((ele) => (
                         <li key={ele._id}>
                             <Card
@@ -98,17 +95,19 @@ export default function Fields(props) {
                                 location={ele.location}
                                 details={ele.details}
                                 description={ele.description}
-                                handleInfo={(date, id, participants, schedule, hostId) =>
-                                    handleInfo(date, id, participants, schedule, hostId)
+                                handleInfo={(field, value) =>
+                                    handleStateChange(field, value)
                                 }
                                 postGame={postGame}
                             />
                         </li>
                     ))}
                 </ul>
+
+               {/*  {confirmation && <Modal />} */}
                 <ToastContainer
                     position="bottom-center"
-                    autoClose={4000}
+                    autoClose={5000}
                     hideProgressBar={false}
                     newestOnTop={false}
                     closeOnClick
@@ -119,7 +118,7 @@ export default function Fields(props) {
                     theme="dark"
                 />
 
-                <Navbar />
+                <Navbar page={"fields"} />
             </>
         </div>
     );
