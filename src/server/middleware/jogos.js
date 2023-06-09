@@ -11,7 +11,7 @@ export function checkDataFromNewGame(req, res) {
   ) {
     return "Por favor preencha todos os campos.";
   }
-  console.log(new Date(date).valueOf());
+
   if ((new Date(date).valueOf() < new Date().valueOf())) {
     return "Por favor escolha uma data futura.";
   }

@@ -20,7 +20,7 @@ export default function Card({
   const hostId = "6479ec3f1de2044d9892aaba";
 
   useEffect(() => {
-    console.log(cardId);
+
     handleInfo("hostId", hostId);
    
   }, []);

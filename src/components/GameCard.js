@@ -26,7 +26,7 @@ export default function GameCard({
 
 
   useEffect(() => {
-    console.log(gameId);
+
     (async () => {
       await fetchData();
     })();
@@ -70,7 +70,7 @@ export default function GameCard({
                 ? "bg-primaryBlue"
                 : "bg-secondaryYellow text-primaryDarkestBlue"
             } w-14 rounded justify-center text-sm`}
-              signToGame("6479ec3f1de2044d9892aaba", gameId)
+              onClick={() => signToGame("6479ec3f1de2044d9892aaba", gameId)
             }
           >
             <span className="text-center text-xs p-1 font-robotoRegular">
