@@ -1,6 +1,7 @@
 import { getGameById, getGames, newPlayer } from "@/server/services/games";
 
 export default async function handler(req, res) {
+    
     try {
       
         if (req.method === "PATCH") {
