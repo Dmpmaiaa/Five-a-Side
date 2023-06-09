@@ -28,11 +28,11 @@ export default function Profile(props) {
         <div className="flex flex-col items-center justify-center overflow-hidden pt-3">
             <Topbar />
             <div className="flex flex-col items-center text-contrastOffWhite pt-8  ">
-                <div className=" rounded-full w-[144px] h-[144px] border-b border-r border-primaryBlue flex intems-center justify-center  text-center">
+                <div className=" rounded-full w-[144px] h-[144px] border-b border-r border-primaryBlue flex intems-center justify-center  text-center ">
                     <Image
-                        width={142}
-                        height={142}
-                        src={"/../public/images/mendes.png"}
+                        width={150}
+                        height={132}
+                        src={userInfo?.img}
                         className="rounded-full"
                     />
                 </div>

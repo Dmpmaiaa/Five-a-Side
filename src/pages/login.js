@@ -13,8 +13,8 @@ export default function Login(props) {
 
     
     return (
-        <div className="bg-login-bg w-screen  bg-auto bg-no-repeat bg-left  h-screen grayscale-75 -z-20">
-            <div className="h-screen w-full flex flex-col  items-center bg-gradient-to-b from-[#211a1db7] to-[#00000014] -z-10">
+        <div className="bg-login-bg w-screen  bg-cover bg-no-repeat bg-bottom-left h-screen -z-20">
+            <div className="h-screen w-full flex flex-col items-center bg-gradient-to-b from-[#211a1db7] to-[#00000014] -z-10">
                 <div className="text-contrastOffWhite mt-10 p-10">
                 <Image justify-center width={130} height={130} src={logo} />
                 </div>
