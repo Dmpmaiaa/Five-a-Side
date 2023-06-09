@@ -17,7 +17,7 @@ export default function LoginForm(props) {
             localStorage.setItem("token", corpo.token);
         } else {
          
-            console.log(nope);
+           
         }
     }
 
