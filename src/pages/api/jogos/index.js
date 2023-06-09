@@ -8,7 +8,7 @@ import {
 } from "@/server/services/games";
 
 export default async function handler(req, res) {
-  console.log("OLA");
+
   try {
     const location = req.query.location;
     const date = req.query.date;
@@ -25,7 +25,7 @@ export default async function handler(req, res) {
       if (date) {
         const games = await getGamesByDate(date);
 
-        console.log(games);
+       
         if (games) {
           return res.status(200).json(games);
         }
@@ -37,7 +37,7 @@ export default async function handler(req, res) {
       const data = req.body;
 
       if (checkDataFromNewGame(req, res)) {
-        return res.status(402).json({msg: "invalid_input"})
+        return res.status(401).json({msg: checkDataFromNewGame(req, res)})
       }
 
       const dataForGame = await newGame(data);

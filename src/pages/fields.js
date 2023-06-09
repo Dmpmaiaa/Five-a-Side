@@ -41,7 +41,7 @@ export default function Fields(props) {
     }, []);
 
     const postGame = async () => {
-        console.log(dataToSend);
+       
         const res = await fetch("/api/jogos/", {
             method: "POST",
             headers: {
@@ -51,7 +51,7 @@ export default function Fields(props) {
         });
 
         const data = await res.json();
-        console.log(dataToSend);
+        console.log(data)
         const status = res.status;
         if (status === 201) {
             toast.success("Jogo marcado!", {
@@ -64,6 +64,17 @@ export default function Fields(props) {
                 progress: undefined,
                 theme: "dark",
             });
+        } else if(status === 401){
+            toast.error( data.msg, {
+                position: "bottom-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                });
         }
     };
 
@@ -93,10 +104,10 @@ export default function Fields(props) {
                     ))}
                 </ul>
 
-                {confirmation && <Modal />}
+               {/*  {confirmation && <Modal />} */}
                 <ToastContainer
                     position="bottom-center"
-                    autoClose={4000}
+                    autoClose={5000}
                     hideProgressBar={false}
                     newestOnTop={false}
                     closeOnClick

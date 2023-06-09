@@ -34,6 +34,7 @@ export default function Games(props) {
       body: JSON.stringify(uid),
     });
     const data = await res.json();
+
     fetchData();
   };
 

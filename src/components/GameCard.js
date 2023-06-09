@@ -3,32 +3,32 @@ import { useEffect, useState } from "react";
 import moment from "moment/moment";
 
 export default function GameCard({
-    gameId,
-    location,
-    numPlayer,
-    schedule,
-    participants,
-    date,
-    signToGame,
-    fieldId,
+  gameId,
+  location,
+  numPlayer,
+  schedule,
+  participants,
+  date,
+  signToGame,
+  fieldId,
 }) {
-    const [fieldInfo, setFieldInfo] = useState([]);
-    
+  const [fieldInfo, setFieldInfo] = useState([]);
 
-    const findCorrectField = (id) => {
-        return fieldInfo.find((ele) => ele._id == id);
-    };
+  const findCorrectField = (id) => {
+    return fieldInfo.find((ele) => ele._id == id);
+  };
 
-    const fetchData = async () => {
-        const fieldRes = await fetch("/api/campos");
-        const fieldData = await fieldRes.json();
-        setFieldInfo(await fieldData);
-    };
+  const fetchData = async () => {
+    const fieldRes = await fetch("/api/campos");
+    const fieldData = await fieldRes.json();
+    setFieldInfo(await fieldData);
+  };
+
 
     useEffect(() => {
         (async () => {
             await fetchData();
-            console.log(findCorrectField(fieldId));
+ 
         })();
     }, []);
    
@@ -88,10 +88,12 @@ export default function GameCard({
     );
 }
 
-{/* <div className="flex flex-col mr-3 space-y-1  ">
+{
+  /* <div className="flex flex-col mr-3 space-y-1  ">
 <button className=" bg-primaryBlue text-contrastOffWhite rounded-lg w-[80px] h-[28px] p">
 0/10 +
 {/** NUMERO DE JOGADORES INSCRITOS. MUDAR A COR CONSOANTE N DE INSCRITOS
 </button>
 
-</div> */}
+</div> */
+}
