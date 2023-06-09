@@ -9,7 +9,7 @@ export default async function handler(req, res) {
             return res.status(200).json({ field });
         }
 
-        return res.status(404).json(/* MENSAGEM DE ERRO */);
+        return res.status(404).json({msg: "not_found"});
         
     } catch (err) {
         console.log(err);

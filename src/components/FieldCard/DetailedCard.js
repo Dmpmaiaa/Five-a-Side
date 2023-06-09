@@ -76,6 +76,7 @@ export default function DetailedCard({ cardId, description, postGame, handleInfo
                     Marcar Jogo
                 </button>
             </div>
+
         </>
     );
 }
