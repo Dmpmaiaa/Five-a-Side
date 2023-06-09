@@ -1,38 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Five A Side
 
-## Getting Started
+## Visão Geral
+Five A Side é uma aplicação web desenvolvida utilizando Next.js e TailwindCSS. É uma aplicação de futebol 5x5 que permite aos utilizadores conectarem-se, organizar e participar em jogos de futebol. A aplicação foi desenvolvida no âmbito do projeto final do programa Bytes4Future utilizando metodologias ágeis e seguiu práticas SCRUM para um desenvolvimento eficiente.
 
-First, run the development server:
+## Como Foi Desenvolvido
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+**Tecnologias usadas** Next.js, TailwindCSS, MongoDB
+Five A Side foi desenvolvido utilizando Next.js, um framework React popular para a construção de aplicações renderizadas no servidor. O frontend foi estilizado utilizando TailwindCSS, um framework CSS utilitário que fornece um sistema de design responsivo e personalizável.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+O backend da aplicação é construído utilizando Node.js e Express.js, fornecendo as APIs e endpoints necessários para autenticação de utilizadores, gestão de jogos e interações do utilizador.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+MongoDB foi utilizado como base de dados para armazenar informações de utilizadores, detalhes dos jogos e outros dados relevantes.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+A aplicação segue uma arquitetura modular baseada em componentes, com componentes reutilizáveis utilizados para construir os elementos e funcionalidades da interface do utilizador.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Otimizações
+Ao longo do processo de desenvolvimento, foram feitas otimizações para garantir o desempenho e a experiência do utilizador na aplicação. Algumas das otimizações incluem:
++
+ - Armazenamento em cache de recursos como imagens e folhas de estilo para melhorar a velocidade de carregamento.
+- Implementação de técnicas de ***lazy loading*** e divisão de código para carregar apenas os componentes e recursos necessários.
+- Minificação e compressão de ficheiros para reduzir o tamanho geral da aplicação.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+# Lições Aprendidas
+Durante o desenvolvimento do ***Five A Side***, várias lições foram aprendidas, contribuindo para o crescimento pessoal e profissional. Alguns dos principais pontos aprendidos incluem:
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Compreender a importância da experiência do utilizador e projetar interfaces intuitivas.
+- Aprender a trabalhar de forma colaborativa em equipa utilizando metodologias ágeis.
+- Adquirir experiência em frameworks frontend como Next.js e frameworks CSS como TailwindCSS.
+- Melhorar as habilidades de resolução de problemas e técnicas de ***debugging***.
+- Aplicar as melhores práticas de organização de código, escalabilidade e manutenibilidade.
