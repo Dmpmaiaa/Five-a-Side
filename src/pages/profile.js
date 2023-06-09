@@ -17,6 +17,10 @@ export default function Profile(props) {
         setUserInfo(data);
     };
     
+    useEffect(() => {
+        fetchData(userId)
+
+    },[])
     
 
 
