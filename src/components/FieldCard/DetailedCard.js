@@ -3,12 +3,20 @@ import { DatePicker } from "@mui/x-date-pickers";
 import Datepicker from "./Datepicker";
 import { useState } from "react";
 import moment from "moment";
+import Maps from "./Maps";
 
 {
     /* PROPS A VIAJAREM ATÉ NARNIA */
 }
 
-export default function DetailedCard({ cardId, description, postGame, handleInfo }) {
+export default function DetailedCard({
+    cardId,
+    description,
+    postGame,
+    handleInfo,
+    lat,
+    long,
+}) {
     const options = [
         { value: "1", label: "1" },
         { value: "2", label: "2" },
@@ -26,8 +34,6 @@ export default function DetailedCard({ cardId, description, postGame, handleInfo
         handleInfo("date", new Date(moment(date?.$d).format("YYYY-MM-DD")));
         handleInfo("hours", moment(date?.$d).format("HH:mm"));
         handleInfo("locationId", cardId);
-
-      
     };
 
     return (
@@ -50,8 +56,8 @@ export default function DetailedCard({ cardId, description, postGame, handleInfo
                                 color: "#f4f4f9",
                             },
                             "& .css-1eoe787-MuiSlider-markLabel": {
-                              color: "#0C8CE9"
-                            }
+                                color: "#0C8CE9",
+                            },
                         }}
                     />
                 </Box>
@@ -76,7 +82,6 @@ export default function DetailedCard({ cardId, description, postGame, handleInfo
                     Marcar Jogo
                 </button>
             </div>
-
         </>
     );
 }
