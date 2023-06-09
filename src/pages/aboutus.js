@@ -1,8 +1,10 @@
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import logo from "#/svg/logo.svg"
+import { useRouter } from "next/router";
 
 export default function AboutUs() {
+  const router = useRouter()
   return (
     <div>
       <div className="flex items-center p-10 justify-center">
@@ -62,7 +64,7 @@ export default function AboutUs() {
         <p>Equipa Five a Side</p>
       </div>
       <div className="pb-24 flex items-center justify-center">
-        <button className="h-8 w-20 rounded-full bg-darkBlueBtn text-contrastOffWhite font-robotoRegular">
+        <button onClick={() => router.push('/profile')} className="h-8 w-20 rounded-full bg-darkBlueBtn text-contrastOffWhite font-robotoRegular">
           Voltar
         </button>
       </div>
