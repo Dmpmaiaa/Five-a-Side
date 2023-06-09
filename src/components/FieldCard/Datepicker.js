@@ -9,6 +9,8 @@ export default function Datepicker({ updateDate }) {
                     value={"value"}
                     onChange={(e) => updateDate(e)}
                     views={["day", "hours"]}
+                    format="DD-MM-YYYY - hh:mm"
+
                     disablePast
                     sx={{
                         "& .MuiInputBase-root": {

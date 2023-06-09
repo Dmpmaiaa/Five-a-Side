@@ -23,8 +23,8 @@ export default function DetailedCard({ cardId, description, postGame, handleInfo
     ];
 
     const handleDateAndHours = (date) => {
-        handleInfo("date", new Date(moment(date.$d).format("YYYY-MM-DD")));
-        handleInfo("hours", moment(date.$d).format("HH:mm"));
+        handleInfo("date", new Date(moment(date?.$d).format("YYYY-MM-DD")));
+        handleInfo("hours", moment(date?.$d).format("HH:mm"));
         handleInfo("locationId", cardId);
 
       
