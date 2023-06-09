@@ -24,6 +24,7 @@ export default function GameCard({
     setFieldInfo(await fieldData);
   };
 
+
   useEffect(() => {
     console.log(gameId);
     (async () => {
@@ -69,7 +70,6 @@ export default function GameCard({
                 ? "bg-primaryBlue"
                 : "bg-secondaryYellow text-primaryDarkestBlue"
             } w-14 rounded justify-center text-sm`}
-            onClick={(uid, gid) =>
               signToGame("6479ec3f1de2044d9892aaba", gameId)
             }
           >
@@ -90,6 +90,7 @@ export default function GameCard({
       </div>
     </div>
   );
+
 }
 
 {
