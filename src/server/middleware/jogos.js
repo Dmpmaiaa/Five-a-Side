@@ -9,12 +9,9 @@ export function checkDataFromNewGame(req, res) {
     participants === "" ||
     hostId === ""
   ) {
-    return "Por favor preencha todos os campos.";
+    return `Por favor preencha todos os campos.`;
   }
 
-  if ((new Date(date).valueOf() < new Date().valueOf())) {
-    return "Por favor escolha uma data futura.";
-  }
 }
 
 

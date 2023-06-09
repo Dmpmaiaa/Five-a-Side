@@ -9,16 +9,12 @@ export default function Login(props) {
     const [loggedIn, setLoggedIn] = useState(true);
 
 
-    useEffect(() => {
-        setInterval(() => {
-            setLoggedIn(Boolean(localStorage.getItem("token")));
-        }, 1000);
-    }, []);
+
 
 
     
     return (
-        <div className="bg-login-bg bg-auto bg-no-repeat bg-left h-screen grayscale-75 -z-20">
+        <div className="bg-login-bg bg-auto bg-no-repeat bg-left h-screen g-z-20">
             <div className="h-screen w-full bg-gradient-to-b from-[#211a1db7] to-[#00000014] -z-10">
                 <div className="flex justify-center p-16">
                     <Image 

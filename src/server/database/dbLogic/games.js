@@ -112,11 +112,8 @@ export async function addNewPlayer(uid, gameId) {
       }
       );
      
-    return result;
-/*     
-  } else if (game.playerNumbers > 9) {
-    return "game_is_full";
-  } else if (game.playersId.includes(uid)) {
-    return "player_already_signed"; */
+    return true;
+
   }
+  return false
 }
