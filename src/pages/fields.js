@@ -51,7 +51,7 @@ export default function Fields(props) {
         });
 
         const data = await res.json();
-        console.log(data)
+
         const status = res.status;
         if (status === 201) {
             toast.success("Jogo marcado!", {
