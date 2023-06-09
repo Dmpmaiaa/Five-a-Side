@@ -10,7 +10,7 @@ export default function GameCard({
     date,
     signToGame,
     fieldId,
-    signed,
+    unsubscribe,
 }) {
     const [fieldInfo, setFieldInfo] = useState([]);
 
@@ -84,7 +84,7 @@ export default function GameCard({
                         <div
                             className={`flex flex-col w-[60px] bg-secondaryRed rounded justify-center text-sm`}
                             onClick={() =>
-                                exitGame("6479ec3f1de2044d9892aaba", gameId)
+                                unsubscribe("6479ec3f1de2044d9892aaba", gameId)
                             }
                         >
                             <span className="text-center text-xs p-1 font-robotoRegular">

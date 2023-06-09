@@ -8,6 +8,7 @@ import {
     findGames,
     findGamesByLocation,
     findGamesToday,
+    removePlayerFromGame,
 } from "../database/dbLogic/games";
 
 export async function getGameById(id) {
@@ -54,4 +55,10 @@ export async function newGame(data) {
 export async function newPlayer(uid, gameId) {
     const gameCreation = await addNewPlayer(uid, gameId);
     return gameCreation;
+}
+
+
+export async function unsubscribePlayer(uid, gameId){
+    const playerRemoval = await removePlayerFromGame(uid, gameId)
+    return playerRemoval
 }

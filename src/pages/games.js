@@ -49,9 +49,6 @@ export default function Games(props) {
                 progress: undefined,
                 theme: "dark",
             });
-            
-
-
         } else if (res.status === 401) {
             toast.error("Já estás inscrito neste jogo!", {
                 position: "bottom-center",
@@ -69,6 +66,31 @@ export default function Games(props) {
         fetchData(selected);
     };
 
+    const unsubscribePlayer = async (uid, gid) => {
+        const res = await fetch(`/api/jogos/unsubscribe/${gid}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ uid, gid }),
+        });
+
+        const data = await res.json();
+        console.log(res.status);
+        if (res.status === 201) {
+            toast.success(":(", {
+                position: "bottom-center",
+                autoClose: 1500,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
+        }
+        fetchData(selected);
+    };
 
     return (
         <div className="bg-primaryDarkestBlue h-screen w-screen">
@@ -106,7 +128,7 @@ export default function Games(props) {
                                     signToGame={(uid, gid) =>
                                         signToGame(uid, gid)
                                     }
-                                    signed={signed}
+                                    unsubscribe={(uid, gid) => unsubscribePlayer(uid, gid)}
                                 />
                             </div>
                         ))}
@@ -124,10 +146,9 @@ export default function Games(props) {
                     theme="dark"
                 />
             </div>
-            <Navbar page={"games"}/>
+            <Navbar page={"games"} />
         </div>
     );
-
 }
 
 const MenuItem = ({ text, selected, onClick }) => (
