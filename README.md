@@ -5,7 +5,7 @@ Five A Side é uma aplicação web desenvolvida utilizando Next.js e TailwindCSS
 
 ## Como Foi Desenvolvido
 
-**Tecnologias usadas** Next.js, TailwindCSS, MongoDB.
+**Tecnologias usadas** Next.js, TailwindCSS, MongoDB.  
 Five A Side foi desenvolvido utilizando ***Next.js***, uma framework de ***React*** popular para a construção de aplicações renderizadas no servidor. O frontend foi estilizado utilizando ***TailwindCSS***, uma framework de CSS utilitário que fornece um sistema de design responsivo e personalizável.
 
 O backend da aplicação é construído utilizando ***Node.js***, fornecendo as APIs e endpoints necessários para autenticação de utilizadores, gestão de jogos e interações do utilizador.
