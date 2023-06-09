@@ -72,7 +72,7 @@ export default function Games(props) {
             />
           ))}
 
-        <Navbar />
+        <Navbar page={"games"} />
       </div>
     </div>
   );

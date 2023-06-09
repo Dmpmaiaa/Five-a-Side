@@ -95,3 +95,17 @@ export default function GameCard({
 </button>
 
 </div> */}
+
+
+{/**
+
+ARRANJAR TEMRMOS E CONDITIONS
+
+PASSAR FOTO PELO FIGMA E APLICAR LA GREYCENAS. ->sol
+SE DER, RANDOM FOTO DE LOGIN. -> barbara
+
+
+TARDE:
+BACK END TESTING - PERCEBER SE HA MERDAS EM FALTA.
+
+*/}

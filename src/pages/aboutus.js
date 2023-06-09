@@ -1,10 +1,12 @@
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
+import logo from "#/svg/logo.svg"
+
 export default function AboutUs() {
   return (
     <div>
       <div className="flex items-center p-10 justify-center">
-        <Image width={130} height={130} src="/../public/images/logotemp.png" />
+        <Image width={130} height={130} src={logo} />
       </div>
       <div className="pr-10 pb-10 pl-10 text-contrastOffWhite text-xs text-justify font-riftRegular leading-5">
         <p>Bem-vindo ao Five a Side!</p>

@@ -1,13 +1,15 @@
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import { Router, useRouter } from "next/router";
+import logo from "#/svg/logo.svg"
+
 export default function Termos() {
 
   const router = useRouter()
   return (
     <div>
       <div className="flex items-center p-10 justify-center">
-        <Image width={130} height={130} src="/../public/images/logotemp.png" />
+        <Image width={130} height={130} src={logo} />
       </div>
       <div className="pr-10 pb-10 pl-10">
         <p className="text-contrastOffWhite text-sm  pb-10 text-center font-robotoRegular">

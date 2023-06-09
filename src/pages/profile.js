@@ -13,17 +13,17 @@ export default function Profile(props) {
                     <Image
                         width={142}
                         height={142}
-                        src={"/../public/images/tonytony.png"}
+                        src={"/../public/images/mendes.png"}
                         className="rounded-full"
                     />
                 </div>
 
                 <div className=" text-2xl pt-5">
                     <span className="block text-center font-robotoBold">
-                        {" "}
-                        Júlio{" "}
+                        {" "}ta
+                        Fernando{" "}
                     </span>
-                    <span className="font-robotoBold ">Macedo, 32 🇵🇹 </span>
+                    <span className="font-robotoBold ">Mendes, 60 🇵🇹 </span>
                 </div>
                 <div className="space-y-3 mt-10 flex flex-col items-center justify-center">
                     <div className="flex flex-col gap-3 text-center pb-5">
@@ -34,14 +34,14 @@ export default function Profile(props) {
                             <span>Logout</span>
                         </div>
                     </div>
-                    <div className="h-[1px] m-10 w-48 border-t opacity-50 "></div>
-                    <div className="space-y-4 pt-8 text-xs flex items-center justify-center ">
-                        <div className="text-contrastOffWhite  flex flex-col items-center justify-center  ">
+                    <div className="h-[1px]  w-48 border-t opacity-50 "></div>
+                    <div className="space-y-4 pt-4 text-xs flex items-center justify-center ">
+                        <div className="text-contrastOffWhite  flex flex-col items-center justify-center gap-2   ">
                             <Link href={"/aboutus"}>
-                                <span>Sobre Nós</span>
+                                <span className="opacity-50">Sobre Nós</span>
                             </Link>
                             <Link href={"/terms"}>
-                                <span>Termos e Condições</span>
+                                <span className="opacity-50">Termos e Condições</span>
                             </Link>
                         </div>
                     </div>
