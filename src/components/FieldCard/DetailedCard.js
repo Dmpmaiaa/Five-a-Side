@@ -3,7 +3,7 @@ import { DatePicker } from "@mui/x-date-pickers";
 import Datepicker from "./Datepicker";
 import { useState } from "react";
 import moment from "moment";
-import Maps from "./Maps";
+
 
 {
     /* PROPS A VIAJAREM ATÉ NARNIA */
