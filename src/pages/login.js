@@ -8,9 +8,6 @@ export default function Login(props) {
     const [loggedIn, setLoggedIn] = useState(true);
 
 
-
-
-
     
     return (
         <div className="bg-login-bg w-screen  bg-cover bg-no-repeat bg-bottom-left h-screen -z-20">

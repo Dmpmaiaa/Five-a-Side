@@ -7,7 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 export default function Fields(props) {
     const [confirmation, setConfirmation] = useState(false);
-    const [fields, setFields] = useState([]);
+    const [fields, setFields] = useState();
     const [dataToSend, setDataToSend] = useState({
         date: "",
         hours: "",
